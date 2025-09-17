@@ -1,18 +1,13 @@
 # CISC486GD-extraterrestrial-entertainment Group 5 Proposal
-
 ## Game Title:
 Seeing as our game will be about uniting various alien races through comedy, our title is “Extraterrestrial Entertainment!”
----
 ## Core Gameplay:
 The game follows a human stand-up comedian at an intergalactic comedy bar/theatre that is trying to appease various alien races that frequent it. Every alien race (of which there will be 3-4) have different cultural upbringings and therefore find different kinds of jokes funny. The player will have to choose between different alien words to make jokes and see how many “audience points” they can get. These foreign alien words will make the joke fit into a certain genre (e.g. self-deprecating, crude, wholesome, silly, etc). Some aliens may dislike certain genres of jokes but as long as a majority of the crowd is smiling and enjoying themselves, the player can win them over. A large drive to this game, and to enforce the puzzle like nature, is that the aliens language is foreign to the player. The player will have a notebook that they can keep track of what alien's words elicit what reaction, and guesses on what each word could mean. The player will have to input different words to try and make jokes that fall into a category that the aliens will like. This language will follow common rules that the player will get to discover over time. 
 Information regarding the multiplayer section of gameplay can be found within the player setup section
----
 ## Game Type:
 Our game doesn’t perfectly fit into existing genres, but the closest thing we can compare it to would be a point-and-click puzzle game of sorts. We give clues as to what kind of jokes certain alien races may enjoy and it is up to the player to figure out the majority of the audience's preferences and make the appropriate joke, almost like a gameshow or a puzzle. This game will also have elements of other genres, the real time dodging of tomatoes when the player is not doing well has elements of action games. 
----
 ## Player Setup:
 The main game will focus on one player winning over a crowd of alien NPCs, but there will also be a versus mode where 2 players will have a “comedy battle”. This could be freestyling (quicktime events) where each player will have a list of options and they need to choose the option they think is best in a limited time (faster could gain more points). It could also follow the “Mad-Libs” style of show the single player will have where both players are given the same prompt for a joker format, and at each blank spot, both players will receive a few options. Players will score more points for the best answer, as well as the speed at which they answer. 
----
 ## AI Enemies and NPCs:
 The NPCs will be aliens that are part of an audience to a comedy show. These aliens will react to the jokes made by the player and change their emotions based on whether they like the joke or not. Currently, we are thinking of adding neutral, happy, angry and sad emotional states for the aliens. Another idea we had is that if the player continuously makes jokes that an alien race doesn’t like, they will throw items like tomatoes that the player will have to dodge. Getting hit could reduce the player’s score and lower the audience’s enjoyment.The NPCs are also not tied to their seats during the performance, they will have the ability to randomly travel to get drinks from the bar, which will change which aliens are listening or not, changing scoring. Additionally, with enough bad performances, the NPCs can get so angry that they leave the bar for the round.
 Some Examples Of FSMs that will be in use 
@@ -30,15 +25,13 @@ Very Happy - If the player says a lot of perfect jokes for this alien, they will
 Angry - The player can enter this state from Sad or Neutral. In this state, the alien will be more likely to head to the bar for a drink, and has a chance to throw a tomato, or enter the LeavingBar state 
 Very Angry - The Alien can enter this state from Angry, In this state, the alien is very likely to leave its seat, and has a very high chance to throw tomatoes. 
 Sad -  The alien can enter this state when the player says a wrong joke, and that joke is either self deprecating or some other emotion that isn't the aliens preferred joke. The alien is very likely to go to the bar in this state and has a small chance of leaving. 
----
+
 # Additional FSMs to be made for: 
 Status of player: When to prompt for new jokes, how to tell if currently telling a joke, ETC. 
 Status of thrown objects: About to be thrown, thrown, hits, misses, ETC. 
 Potential Bartenders to serve customers. 
----
 ## Scripted Events:
 Our aliens will have many different scripted events that will occur. First, at the very beginning of the game, the aliens will enter, and randomly make their way to seats to listen to the jokes. Also, randomly, the aliens can get up to go to the bar, which will dynamically change the amount of scoring the jokes will generate. If the player is scoring poorly, and the jokes are not enjoyed by the audience, the aliens have the ability to stand up and leave the building. If the player is scoring well, more aliens will hear about their performance and travel to come see the show. 
----
 ## Environment:
 The main setting for the environment is a “Galactic Comedy Bar” a place where aliens of all types can hang out and have a laugh. These “Galactic Comedy Bars” will have a main stage area where the playable characters will play through the main gameplay loop. In front of the stage, there will be multiple tables with chairs where the aliens will sit and watch the show. There is also a bar that the aliens can get drinks from. Lastly, there is a door where the aliens can enter (when the game starts) and leave (when the aliens dislike the show). 
 ### Possible ideas if we have enough time to implement them:
@@ -49,7 +42,6 @@ More tables could be purchased to increase the size of the audience. Improvement
 A music player can make the bar feel more lively and improve the audience’s mood.
 Increased staff reduces wait time. 
 Players will make money based on their performance during the show and then can reinvest it into their comedy bar.
---- 
 ## Planning Factors: 
 Planning To Be Made in Unity 6.2 (Version 6000.2.4f1) 
 ### Asset Preparation: 
