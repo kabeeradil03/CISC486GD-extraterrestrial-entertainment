@@ -1,4 +1,4 @@
-### CISC486GD-extraterrestrial-entertainment Group 5 Proposal
+# CISC486GD-extraterrestrial-entertainment Group 5 Proposal
 
 ## Game Title:
 Seeing as our game will be about uniting various alien races through comedy, our title is “Extraterrestrial Entertainment!”
@@ -18,7 +18,7 @@ The main game will focus on one player winning over a crowd of alien NPCs, but t
 The NPCs will be aliens that are part of an audience to a comedy show. These aliens will react to the jokes made by the player and change their emotions based on whether they like the joke or not. Currently, we are thinking of adding neutral, happy, angry and sad emotional states for the aliens. Another idea we had is that if the player continuously makes jokes that an alien race doesn’t like, they will throw items like tomatoes that the player will have to dodge. Getting hit could reduce the player’s score and lower the audience’s enjoyment.The NPCs are also not tied to their seats during the performance, they will have the ability to randomly travel to get drinks from the bar, which will change which aliens are listening or not, changing scoring. Additionally, with enough bad performances, the NPCs can get so angry that they leave the bar for the round.
 
 Some Examples Of FSMs that will be in use 
-###
+
 # Alien Movement FSM: 
 SearchingForSeat - Starting State, The alien will start to search for an open seat that it could sit in.  
 FoundSeat - After a seat is found, the alien will walk towards it to sit down. 
@@ -26,7 +26,7 @@ SittingAndListening - The longest state the alien will be in, the alien is seate
 RespondingToJoke - After a joke is said, the alien has the opportunity to react to the joke to signal their emotion. 
 HeadingToBar - If the alien is SittingAndListening, they have the chance to enter HeadingToBar to start walking towards the bar and disable the Alien Emotion FSM and be taken out of the scoring algorithm. 
 LeavingBar - If the alien is in the Very Angry or Angry State in the Alien Emotion FSM, they are able to enter LeavingBar state and leave the bar. 
-###
+
 # Alien Emotion FSM:
 Neutral - The starting state of each of the aliens. Represents the neutral 
 Happy - If the player says some good jokes for this alien, they will enter this state and give the player increased points. 
@@ -59,18 +59,18 @@ Players will make money based on their performance during the show and then can 
 ## Planning Factors: 
 Planning To Be Made in Unity 6.2 (Version 6000.2.4f1) 
 
-# Asset Preparation: 
+### Asset Preparation: 
 Many 3D assets will be gathered from the unity store, as well as other distribution platforms like itch.io and kitbash3d.com. For music and sounds, we will use a combination of royalty free music (freemusicarchive.org) and sound effects as well as creating our own sound effects when needed. 
 
-# Storage Structures: 
+### Storage Structures: 
 The alien languages and their meanings will be stored in a large lookup table/hash table for quick indexing. 
 
-# Coding Practices:
+### Coding Practices:
 Each of the main components and functionalities will have separate folders. With subfolders representing their corresponding sub tasks, This is to help separate conflicts with GitHub and to keep the code modular. 
 
-# Group Name: MouseaNdKeyboard
+### Group Name: MouseaNdKeyboard
 
-# Group Roles:
+### Group Roles:
 
 Kabeer - I can handle asset management, working on levels, pathfinding for NPCs and handling the emotional state switching. Also probably writing some of the basic lore that will help the player.
 Nicholas - I can write all of the alien language and the “emotions” that go with each of the words. I can also help with the coding of the players actions, jokes and the scoring functionality. I can also help with finding and making 3d models for the environment. 
