@@ -50,15 +50,15 @@ The alien languages and their meanings will be stored in a large lookup table/ha
 Each of the main components and functionalities will have separate folders. With subfolders representing their corresponding sub tasks, This is to help separate conflicts with GitHub and to keep the code modular. 
 ### Group Name: MouseaNdKeyboard
 ### Group Roles:
-Kabeer - I can handle asset management, working on levels, pathfinding for NPCs and handling the emotional state switching. Also probably writing some of the basic lore that will help the player.  
-Nicholas - I can write all of the alien language and the “emotions” that go with each of the words. I can also help with the coding of the players actions, jokes and the scoring functionality. I can also help with finding and making 3d models for the environment.   
-Marcus - I can work on the design of the environment, the design of 3d models, as well as coding scripts for events like throwing objects. I can also find and implement the audio: laughter for the audience, background music, and sound effects  
-Universal Commitments - 
+**Kabeer** - I can handle asset management, working on levels, pathfinding for NPCs and handling the emotional state switching. Also probably writing some of the basic lore that will help the player.  
+**Nicholas** - I can write all of the alien language and the “emotions” that go with each of the words. I can also help with the coding of the players actions, jokes and the scoring functionality. I can also help with finding and making 3d models for the environment.   
+**Marcus** - I can work on the design of the environment, the design of 3d models, as well as coding scripts for events like throwing objects. I can also find and implement the audio: laughter for the audience, background music, and sound effects  
+### Universal Commitments - 
 Maintaining meaningful GitHub commit messages. Writing of upcoming assignments. Robust coding comments. Debug options for all implementations to visualize assignment requirements for all assignment deliverables. Brainstorming  
 Made By:    
-Marcus Secord: 20ms130 - 20268223  
-Nicholas Tillo: 20njt4 - 20291255   
-Kabeer Adil: 20ma101 - 20283057  
+**Marcus Secord**: 20ms130 - 20268223  
+**Nicholas Tillo**: 20njt4 - 20291255   
+**Kabeer Adil**: 20ma101 - 20283057  
 
 
 
