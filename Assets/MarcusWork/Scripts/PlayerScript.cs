@@ -51,4 +51,10 @@ public class PlayerScript : MonoBehaviour
         // Apply vertical movement
         controller.Move(velocity * Time.deltaTime);
     }
+
+    // Method to reset the player's velocity
+    public void ResetVelocity()
+    {
+        velocity = Vector3.zero;
+    }
 }
