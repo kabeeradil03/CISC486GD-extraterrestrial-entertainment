@@ -16,6 +16,8 @@ public class BarEntrance : MonoBehaviour
 
             // Get the PlayerScript and CharacterController components
             PlayerScript script = other.GetComponent<PlayerScript>();
+
+            // used AI to figure out that I should be disabling the controller to avoid physics issues rather than the player movement script
             CharacterController controller = other.GetComponent<CharacterController>();
 
             if (controller != null && script != null)
@@ -33,16 +35,13 @@ public class BarEntrance : MonoBehaviour
                 if (entering)
                 {
                     script.gravity = -9.81f; // Normal gravity
-                    script.jumpHeight = 2f; // Normal jump height
+                    script.jumpHeight = 4f; // Normal jump height
                 }
                 else
                 {
                     script.gravity = -4.81f; // Lower gravity
                     script.jumpHeight = 6f; // Higher jump height
                 }
-
-                // Reset the player's velocity to avoid unwanted movement after teleportation
-                script.ResetVelocity();
             }
         }
     }

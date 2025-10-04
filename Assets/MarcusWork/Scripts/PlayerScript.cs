@@ -1,60 +1,60 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerScript : MonoBehaviour
 {
-    public CharacterController controller; // Reference to the CharacterController component
-    public float speed = 6f;               // Normal movement speed
-    public float sprintSpeed = 12f;        // Sprinting speed
-    public float jumpHeight = 1.5f;        // Jump height
-    public float gravity = -9.81f;         // Gravity value
-    public Transform groundCheck;          // Transform to check if the player is grounded
-    public float groundDistance = 0.4f;    // Radius of the ground check sphere
-    public LayerMask groundMask;           // Layer mask to identify ground
 
-    private Vector3 velocity;              // Tracks player's velocity
-    private bool isGrounded;               // Tracks if the player is grounded
+    public CharacterController controller;
+    public float speed;
+    public float jumpHeight;
+    public float gravity;
 
-    void Update()
+    float horizontalMove;
+    float verticalMove;
+    private Vector3 jump;
+    private Vector3 move;
+    private bool grounded;
+
+
+
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
-        // Check if the player is grounded
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        // Reset velocity if grounded
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
-
-        // Get input for movement
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
-
-        // Check if the player is sprinting
-        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
-        float currentSpeed = isSprinting ? sprintSpeed : speed;
-
-        // Calculate movement direction
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
-
-        // Move the player
-        controller.Move(move * currentSpeed * Time.deltaTime);
-
-        // Jumping
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-
-        // Apply gravity
-        velocity.y += gravity * Time.deltaTime;
-
-        // Apply vertical movement
-        controller.Move(velocity * Time.deltaTime);
+        controller = GetComponent<CharacterController>();
     }
 
-    // Method to reset the player's velocity
-    public void ResetVelocity()
+    // Update is called once per frame
+    void Update()
     {
-        velocity = Vector3.zero;
+        grounded = controller.isGrounded;
+        if (grounded)
+        {
+            // player won't stay grounded without some downward velocity
+            jump.y = -2;
+        }
+
+        horizontalMove = Input.GetAxis("Horizontal");
+        verticalMove = Input.GetAxis("Vertical");
+
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
+            jump = Vector3.up * jumpHeight;
+            Debug.Log("jumpin" + jump);
+        }
+        // add the horizontal and forward/backwards movement in the direction of the player
+        move = transform.right * horizontalMove + transform.forward * verticalMove;
+        move *= speed;
+        
+        if (!grounded)
+        {
+            // apply gravity to jump vector when in the air
+            jump.y += gravity * Time.deltaTime;
+        }
+        // add the jump vector for vertical movement
+        move.y = jump.y;
+
+        controller.Move(move * Time.deltaTime);
     }
 }
