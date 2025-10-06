@@ -16,6 +16,10 @@ public class PlayerScript : MonoBehaviour
     private bool grounded;
 
 
+    private Animator anim;
+    public int pv;
+
+
 
 
 
@@ -23,12 +27,14 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         grounded = controller.isGrounded;
+        //Debug.Log(grounded);
         if (grounded)
         {
             // player won't stay grounded without some downward velocity
@@ -41,12 +47,12 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetButtonDown("Jump") && grounded)
         {
             jump = Vector3.up * jumpHeight;
-            Debug.Log("jumpin" + jump);
+            //Debug.Log("jumpin" + jump);
         }
         // add the horizontal and forward/backwards movement in the direction of the player
         move = transform.right * horizontalMove + transform.forward * verticalMove;
         move *= speed;
-        
+
         if (!grounded)
         {
             // apply gravity to jump vector when in the air
@@ -56,5 +62,20 @@ public class PlayerScript : MonoBehaviour
         move.y = jump.y;
 
         controller.Move(move * Time.deltaTime);
+
+        if (!grounded)
+        {
+            Debug.Log("jump anim");
+            pv = 2;
+        }
+        else if (move.x != 0 || move.z != 0)
+        {
+            pv = 1;
+        }
+        else
+        {
+            pv = 0;
+        }
+        anim.SetInteger("AnimationPar", pv);
     }
 }

@@ -20,7 +20,7 @@ public class BarEntrance : MonoBehaviour
             // used AI to figure out that I should be disabling the controller to avoid physics issues rather than the player movement script/rigidbody.
             // I also used AI to automatically replace the code (swap from using the script/rigidbody to character controller). 
             // The code that was affected was code that grabbed the rigidbody component (line 24) and was replaced with CharacterController
-            // The code to disable/enable the script/rigidbody was also replaced with the controller variable (line 29 and 35). All other code I originally wrote.
+            // The code to disable/enable the script/rigidbody was also replaced with the controller variable rather than script/rb (line 29 and 35). All other code I originally wrote.
             CharacterController controller = other.GetComponent<CharacterController>();
 
             if (controller != null && script != null)
