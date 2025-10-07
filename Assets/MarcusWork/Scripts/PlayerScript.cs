@@ -63,17 +63,21 @@ public class PlayerScript : MonoBehaviour
 
         controller.Move(move * Time.deltaTime);
 
+
         if (!grounded)
         {
-            Debug.Log("jump anim");
+            // floating animation while the player is in the air
             pv = 2;
         }
         else if (move.x != 0 || move.z != 0)
         {
+            // running animation while the player is moving
+            // i might add an animation for when the player is moving backwards
             pv = 1;
         }
         else
         {
+            // idle animation when the player isn't moving
             pv = 0;
         }
         anim.SetInteger("AnimationPar", pv);
