@@ -4,13 +4,15 @@ public class GameController : MonoBehaviour
 {
     public int score;
     
+    public JokeManager jokeManager;    
     public GameObject journalPrefab;
     public GameObject jounralInstance;
     public bool isJounralUIOpen;
     public Camera jounralCamera; 
     public Camera mainCamera;
 
-    
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class JokeManager : MonoBehaviour
 {
+    //Time till the next joke can appear. 
     public float jokeTimer; 
     bool readyToSayJoke; 
+
+    //The number of the next upcoming joke
     int jokeIndex;
+    //List of jokes that have been used. 
     int[] usedJokesThisRound; 
+    //How many jokes will be said this round. 
     int numExistingJokesInScope; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,7 +34,12 @@ public class JokeManager : MonoBehaviour
             jokeTimer -= Time.deltaTime;
         }
         else{
-            PromptForJoke();
+            //If player is in the right state, make the prompt appear. 
+            if(true){
+                PromptForJoke();
+                jokeTimer = 15f;
+            }
+            
         }
         
     }
