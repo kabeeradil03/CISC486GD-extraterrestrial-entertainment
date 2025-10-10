@@ -132,7 +132,7 @@ This youtube link displays the player movement and the states of the alien race.
 ## Number 2: 
 This video goes more in depth into the Player Joke FSM, and displays the debug mode with a short snippet to show all the FSM's interacting. 
 
-### LINK : 
+### LINK : https://youtu.be/9dVxzEknoJY
 
 ## Team Member Contributions.
 Kabeer - Handled asset acquisition and management for alien NPCs, Created script FSM that allowed alien to shift between three states, Added assets to represent the three states, Edited and posted demo reel to showcase the build so far.  
