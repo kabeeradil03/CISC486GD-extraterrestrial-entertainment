@@ -1,4 +1,4 @@
-# CISC486GD-extraterrestrial-entertainment Group 5 Proposal
+# CISC486GD-extraterrestrial-entertainment Group 6 Proposal
 ## Game Title:
 Seeing as our game will be about uniting various alien races through comedy, our title is “Extraterrestrial Entertainment!”
 ## Core Gameplay:
