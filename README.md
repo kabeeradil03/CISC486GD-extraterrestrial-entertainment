@@ -67,8 +67,53 @@ Made By:
 # Assignment 2 Deliverables:
 
 ## Finite State Machines
+
 ### Player Movement FSM
+This is the simplist of the FSM's 
+The player can move between 3 states, 
+Idle - Not moving at all, 
+Runnning - When the player is moving along the ground
+Jumping - When the player is in the air. 
+The diagram looks like this. 
+
+// IMAGE 
+
+
 ### Joke Manager FSM 
+This is the most complex FSM.
+Waiting - Simply waiting for the timing to be right to hit the crowd with a new joke.  
+SayingJoke - This is the player activly speaking the joke, There is only 1 way into this state, from completing a joke in the decidingJoke state, and only 1 way out of this state, which is the jokes animation being completed which it will then transition to waiting   
+
+JokePrepared - This is the state that represents the ability to say a new joke, but the player is not at the stand yet.  There are 2 ways to enter this state, either from the waiting state and sufficient time has passed, or if the player leaves the stand, This state can only transition to the DecidingJoke state once the player enters the microphone stand.  
+
+DecidingJoke - This state is entered by the player entering the microphone stand when a joke is prepared. This can be left in 2 ways, Either by completing the joke, and the state then transitions to SayingJoke 
+
+Paused - The player has paused the game, this is 
+//IMAGE 
+
 
 ### Alien Emotion FSM
-### Alien Movement FSM
+This FSM explains how the aliens emotions works. 
+
+Very Happy - 
+Happy - 
+Neutral - 
+Angry - 
+Very Angry - 
+Sad - Can only be entered if the aliens least favourite joke is crude, then the alien will become sad, the player will lose ALOT of points. 
+
+//IMAGE
+
+
+
+
+# YOUTUBE LINKS
+### Number 1: 
+This youtube link displays the player movement and the states of the alien race. 
+### Number 2: 
+This video goes more in depth into the Player Joke FSM, and displays the debug mode with a short snippet to show all the FSM's interacting. 
+## Team Member Contributions.
+
+Kabeer - Alien FSM, 
+Nicholas - ReadMe. Joke FSM, 
+Marcus - Enviroment, Player Movement, Player Animations. 

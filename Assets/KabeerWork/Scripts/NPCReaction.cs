@@ -4,6 +4,15 @@ using TMPro;
 
 public class NPCReaction : MonoBehaviour
 {
+    public enum NPCStates
+    {
+        VeryHappy,
+        Happy,
+        Neutral,
+        Angry,
+        VeryAngry,
+        Sad
+    }
     [Header("Reaction UI")]
     public Image reactionImage;     // Reference to the Image in the World Space Canvas
     public float displayTime = 2f;  // Duration the sprite is visible
@@ -16,6 +25,7 @@ public class NPCReaction : MonoBehaviour
 
     private Coroutine currentCoroutine;
 
+    public NPCStates currentState; 
     public int happiness;
     public object[] jokePrefrences;
 
@@ -30,6 +40,7 @@ public class NPCReaction : MonoBehaviour
         }
 
         jokePrefrences = new object[] { JokeManager.JokeType.Silly, JokeManager.JokeType.SelfDepricating, JokeManager.JokeType.Wholesome, JokeManager.JokeType.Crude };
+        currentState = NPCStates.Neutral;
     }
 
     void Update()
@@ -92,18 +103,50 @@ public class NPCReaction : MonoBehaviour
     }
 
 
+    public void calculateState()
+    {
+        if (happiness >= 25)
+        {
+            currentState = NPCStates.VeryHappy;
+        }
+        else if (happiness >= 10)
+        {
+            currentState = NPCStates.Happy;
+        }
+        else if (happiness >= 0)
+        {
+            currentState = NPCStates.Neutral;
+        }
+        else if (happiness >= -20)
+        {
+            currentState = NPCStates.Angry;
+        }
+        else
+        {
+            currentState = NPCStates.VeryAngry;
+        }
+    }
     public int score(JokeManager.JokeType pJoke)
     {
         if (pJoke == (JokeManager.JokeType)jokePrefrences[0])
         {
             ShowReaction(laughSprite);
             happiness += 10;
+            calculateState();
             return 10;
+        }
+        //If the said joke was a crude joke, and the aliens least favourite joke is crude, then they become sad. 
+        else if (pJoke == (JokeManager.JokeType)jokePrefrences[3] && pJoke == JokeManager.JokeType.Crude)
+        {
+            ShowReaction(sadSprite);
+            happiness -= 20;
+            return -20;
         }
         else if (pJoke == (JokeManager.JokeType)jokePrefrences[3])
         {
             ShowReaction(angrySprite);
             happiness -= 5;
+            calculateState();
 
             return -5;
         }
