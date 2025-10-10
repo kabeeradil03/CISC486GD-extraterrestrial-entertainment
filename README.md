@@ -66,54 +66,69 @@ Made By:
 
 # Assignment 2 Deliverables:
 
-## Finite State Machines
+## Enviroment
+
+## Player 
+
+# Finite State Machines
 
 ### Player Movement FSM
 This is the simplist of the FSM's 
 The player can move between 3 states, 
-Idle - Not moving at all, 
-Runnning - When the player is moving along the ground
-Jumping - When the player is in the air. 
-The diagram looks like this. 
+Idle - Not moving at all, the player starts in this state, they can then enter either of the 2 other states. 
+Runnning - When the player is moving along the ground they are considered running. This state can be entered from any of the other states, and can transition to Idle when the player stops runnning, and can transition to Jump if the player inputs a jump. 
+Jumping - This state represents the player being in the air. Can be transitioned to and from any other state. 
 
-// IMAGE 
+![A Diagram describing the states and transitions of the Player Movement FSM](MovementFSM.png "Diagram Of The Player's Movement FSM")
 
 
 ### Joke Manager FSM 
 This is the most complex FSM.
-Waiting - Simply waiting for the timing to be right to hit the crowd with a new joke.  
-SayingJoke - This is the player activly speaking the joke, There is only 1 way into this state, from completing a joke in the decidingJoke state, and only 1 way out of this state, which is the jokes animation being completed which it will then transition to waiting   
+Waiting - Simply waiting for the timing to be right to hit the crowd with a new joke. This state can only transition to the JokePrepared state once a certian amount of time has passed.   
 
-JokePrepared - This is the state that represents the ability to say a new joke, but the player is not at the stand yet.  There are 2 ways to enter this state, either from the waiting state and sufficient time has passed, or if the player leaves the stand, This state can only transition to the DecidingJoke state once the player enters the microphone stand.  
+SayingJoke - This is the player activly speaking the joke, There is only 1 way into this state, from completing a joke in the decidingJoke state, and only 1 way out of this state, which is the jokes animation being completed which it will then transition to the waiting state.  
 
-DecidingJoke - This state is entered by the player entering the microphone stand when a joke is prepared. This can be left in 2 ways, Either by completing the joke, and the state then transitions to SayingJoke 
+JokePrepared - This is the state that represents the ability to say a new joke, but the player is not at the stand yet.  There are 2 ways to enter this state, either from the waiting state and sufficient time has passed, or if the player leaves the stand, This state can only transition to the DecidingJoke state once the player enters the microphone stand.   
 
-Paused - The player has paused the game, this is 
-//IMAGE 
+DecidingJoke - This state is entered by the player entering the microphone stand when a joke is prepared. This can be left in 2 ways, Either by completing the joke, and the state then transitions to SayingJoke or by walking out of the microphone area, where the state will transition back to JokePrepared.   
+
+Paused - The player has paused the game, this will stop the, when exiting this state, it will go back to whichever state it came from. Similar to the stack FSM implementation, however only with a max depth of 1.   
+![A Diagram describing the states and transitions of the Joke Manager FSM](JokeManagerFSM.png "Diagram Of The Joke Manager FSM")
 
 
 ### Alien Emotion FSM
 This FSM explains how the aliens emotions works. 
 
-Very Happy - 
-Happy - 
-Neutral - 
-Angry - 
-Very Angry - 
-Sad - Can only be entered if the aliens least favourite joke is crude, then the alien will become sad, the player will lose ALOT of points. 
+Very Happy - This state can only be entered from the Happy state, it occurs when enough positive jokes have been said to increase their happiness value to above 25. This state gives the player maximum points per joke, and will affect the aliens movement to make them more likely to stay in their chairs. 
 
-//IMAGE
+Happy - This state can be entered from either the Very Happy or Neutral state, it occurs when the aliens happiness is between 10 and 25. This state gives increased score per joke. this also affects the aliens movement to make them slightly more likely to stay in their chairs.  
+
+Neutral - This state occurs when the aliens happiness is between -10 and 10. Represents the aliens neutral state, with no effect on scoring. 
+
+Angry - This state can be entered from either Angry, or Very Angry, and represents the alien when they are between -10 and -25 happiness. In this state, the player gets less points for jokes, and the alien is more likely to leave their seat and has a low chance to throw a tomato. 
+
+Very Angry - Can only be entered from the angry state, represents the alien being at less than -25 happiness. This state has the least amount of score gain for jokes, and the alien is extremelty likely to leave their seat and has the chance to throw tomatos.
+
+Sad - Can only be entered if the aliens least favourite joke is crude AND the player says a crude joke. This state can be entered from any state. The alien will become sad, the player will lose ALOT of points. Once the alien is in the Sad state, they can not leave it unless they go to the bar (Upcoming in the Alien Movement Section for Assignment 3), regardless of the aliens happiness value. 
+
+![A Diagram describing the states and transitions of the Alien Emotion FSM](AlienEmotionFSM.png "Diagram Of The Alien Emotion FSM")
 
 
 
 
 # YOUTUBE LINKS
-### Number 1: 
+## Number 1: 
 This youtube link displays the player movement and the states of the alien race. 
-### Number 2: 
-This video goes more in depth into the Player Joke FSM, and displays the debug mode with a short snippet to show all the FSM's interacting. 
-## Team Member Contributions.
+### LINK : https://youtu.be/yV3j3jQtLQs
 
-Kabeer - Alien FSM, 
-Nicholas - ReadMe. Joke FSM, 
-Marcus - Enviroment, Player Movement, Player Animations. 
+
+## Number 2: 
+This video goes more in depth into the Player Joke FSM, and displays the debug mode with a short snippet to show all the FSM's interacting. 
+
+### LINK : 
+
+## Team Member Contributions.
+Kabeer - Handled asset acquisition and management for alien NPCs, Created script FSM that allowed alien to shift between three states, Added assets to represent the three states, Edited and posted demo reel to showcase the build so far.  
+Nicholas - Wrote the ReadMe. Joke Manager FSM, All of the development regarding the players ability to tell jokes, UI, Microphone Logic, Scoring ETC. Editied and posted the 2nd demo reel showcasing the JokeManager FSM.   
+Marcus - Found free assets for the ground, planets/sun, skybox, building, decorations, and character model.
+Worked on creating the terrain, editing the building interior (ex add a bar), and the rest of the level design. Modified and implemented the animation FSM with the player script: Idle, running, floating (in air). Wrote scripts for camera movement, player movement, the physics of the revolving planets/star, and entering/exiting the bar with gravity changes.
