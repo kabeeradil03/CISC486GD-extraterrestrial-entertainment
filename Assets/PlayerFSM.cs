@@ -3,17 +3,19 @@ using UnityEngine;
 public class PlayerFSM : MonoBehaviour
 {
     //Possible Player States. 
-    public enum State{
+    public enum State
+    {
         DecidingJoke,
-        SayingJoke, 
+        JokePrepared,
+        SayingJoke,
         Waiting,
         Paused
     }
-    public State currentState; 
-    public float waitingTime;
+    public State currentState;
 
     //Joke manager. 
-    public JokeManager jokeManager; 
+    public JokeManager jokeManager;
+    public GameController gameController;
 
     //UI Elements.
 
@@ -21,36 +23,40 @@ public class PlayerFSM : MonoBehaviour
     void Start()
     {
         currentState = State.Waiting;
-        waitingTime = 5f;
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        waitingTime -= Time.deltaTime;
-        if(waitingTime<=0){
-            //Do Next Action, Call one of the transitions, depending on what conditions are true
-            // All transition EXCEPT deciding on joke require a waiting time.
-        }
-        
     }
     //Transition between states; 
-    void WaitingToDeciding(){
 
-        //Generate Random Joke Prompt. 
+    public void WaitingToJokePrepared()
+    {
+        //Cube appears. 
         
-        
-        
-        
+
     }
-    void DecidingToSaying(){
+    public void DecidingToSaying()
+    {
         //After the user has inputted 
         //Play the corresponding audio
-        
-    }
-    void SayingToWaiting(){
-        //Allow enough time for the aliens to give their responses, and maybe enough time to dodge some tomatoes. 
+        //Remove the ability to move.
+        gameController.setPlayerCanMove(false);
 
+    }
+    public void SayingToWaiting()
+    {
+        //Allow enough time for the aliens to give their responses, and maybe enough time to dodge some tomatoes. 
+        gameController.setPlayerCanMove(false);
+    }
+    public void JokePreparedToDeciding()
+    {
+
+    }
+    public void DecidingToJokePrepared()
+    {
+        
     }
 }

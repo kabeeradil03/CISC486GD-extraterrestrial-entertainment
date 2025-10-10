@@ -20,6 +20,10 @@ public class PlayerScript : MonoBehaviour
     public int pv;
 
 
+    public bool canMove;
+    public GameController gameController;
+
+
 
 
 
@@ -28,11 +32,16 @@ public class PlayerScript : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        canMove = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!canMove)
+        {
+            return;
+        }
         grounded = controller.isGrounded;
         //Debug.Log(grounded);
         if (grounded)
@@ -61,6 +70,7 @@ public class PlayerScript : MonoBehaviour
         // add the jump vector for vertical movement
         move.y = jump.y;
 
+        
         controller.Move(move * Time.deltaTime);
 
 
@@ -81,5 +91,20 @@ public class PlayerScript : MonoBehaviour
             pv = 0;
         }
         anim.SetInteger("AnimationPar", pv);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Microphone")
+        {
+            gameController.entersMicrophone();
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Microphone")
+        {
+            gameController.exitsMicrophone();
+        }
     }
 }

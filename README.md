@@ -64,3 +64,11 @@ Made By:
 
 
 
+# Assignment 2 Deliverables:
+
+## Finite State Machines
+### Player Movement FSM
+### Joke Manager FSM 
+
+### Alien Emotion FSM
+### Alien Movement FSM
