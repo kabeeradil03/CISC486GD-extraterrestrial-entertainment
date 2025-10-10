@@ -67,47 +67,54 @@ Made By:
 # Assignment 2 Deliverables:
 
 ## Enviroment
+The Space Bar enviroment has been made, with multiple sections an interior and an exterior that the player can explore. The main attraction is the microphone stand where the player is able to start their comedy routine. It also has a fully rendered rotating sun and earth sky that helps to illuminate the area and immerse the player. 
+
+![A screenshot of the internal of the bar](enviroment.png "A screenshot of the Internal of the bar")
+![A screenshot of the outside of the bar](enviromentOutside.png "A screenshot of the external of the bar")
+
 
 ## Player 
+The player themselves has been fully equipped for their space travels & joke telling. They are fully modelled as a astronaut with full gear. Their movement is fully implemented, with a unique gravity when they are inside or outside the space bar.   
+![A screenshot of player outside the bar](playerImage.png "A screenshot of the player outside the bar")
 
 # Finite State Machines
 
 ### Player Movement FSM
-This is the simplist of the FSM's 
-The player can move between 3 states, 
-Idle - Not moving at all, the player starts in this state, they can then enter either of the 2 other states. 
-Runnning - When the player is moving along the ground they are considered running. This state can be entered from any of the other states, and can transition to Idle when the player stops runnning, and can transition to Jump if the player inputs a jump. 
-Jumping - This state represents the player being in the air. Can be transitioned to and from any other state. 
+This is the simplist of the FSM's, it represents the state that the player is currently in. This FSM dictates the Animator component that the player has attached to them to tell it which animation to play. The player can move between 3 states:  
+Idle - Not moving at all, the player starts in this state, they can then enter either of the 2 other states.   
+Runnning - When the player is moving along the ground they are considered running. This state can be entered from any of the other states, and can transition to Idle when the player stops runnning, and can transition to Jump if the player inputs a jump.   
+Jumping - This state represents the player being in the air. Can be transitioned to and from any other state.   
 
 ![A Diagram describing the states and transitions of the Player Movement FSM](MovementFSM.png "Diagram Of The Player's Movement FSM")
 
 
 ### Joke Manager FSM 
-This is the most complex FSM.
-Waiting - Simply waiting for the timing to be right to hit the crowd with a new joke. This state can only transition to the JokePrepared state once a certian amount of time has passed.   
+This is the most complex FSM. This FSM handles the logic that generates, presents, takes player input and scores the jokes that the core of the gameplay loop surrounds. There are 5 states corresponding with this FSM. 
 
-SayingJoke - This is the player activly speaking the joke, There is only 1 way into this state, from completing a joke in the decidingJoke state, and only 1 way out of this state, which is the jokes animation being completed which it will then transition to the waiting state.  
+Waiting - Simply waiting for the timing to be right to hit the crowd with a new joke. This state represents the player simply waiting, they are not allowed to say new jokes, and the microphone is disabled. This state can only transition to the JokePrepared state once a certian amount of time has passed.   
 
-JokePrepared - This is the state that represents the ability to say a new joke, but the player is not at the stand yet.  There are 2 ways to enter this state, either from the waiting state and sufficient time has passed, or if the player leaves the stand, This state can only transition to the DecidingJoke state once the player enters the microphone stand.   
+SayingJoke - This state represents the player activly speaking the joke, the player is unable to move or look around, and the sound clip of the joke is played. There is only 1 way into this state, from completing a joke in the decidingJoke state, and only 1 way out of this state, which is the jokes animation being completed which it will then transition to the waiting state.  
 
-DecidingJoke - This state is entered by the player entering the microphone stand when a joke is prepared. This can be left in 2 ways, Either by completing the joke, and the state then transitions to SayingJoke or by walking out of the microphone area, where the state will transition back to JokePrepared.   
+JokePrepared - This is the state that represents the ability to say a new joke, but the player is not at the microphone to activly choose the joke, and therefore, the system is waiting on actions from the player. There are 2 ways to enter this state, either from the waiting state and sufficient time has passed, or if the player leaves the stand, This state can only transition to the DecidingJoke state once the player enters the microphone stand's trigger.   
 
-Paused - The player has paused the game, this will stop the, when exiting this state, it will go back to whichever state it came from. Similar to the stack FSM implementation, however only with a max depth of 1.   
+DecidingJoke - This state is entered by the player entering the microphone stand when a joke is prepared. this locks the players camera, and enables the Joke UI where the player can drag and drop the words into the corresponding spaces. This can be left in 2 ways, Either by completing the joke and pressing the "Submit" button which then the state then transitions to SayingJoke or by walking out of the microphone area, where the state will transition back to JokePrepared.   
+
+Paused - This state represents when the player has paused the game, This can be in 2 ways, either opening the journal, or pressing the pause menu, when exiting this state, it will go back to whichever state it came from. Similar to the stack FSM implementation, however only with a max depth of 1.   
 ![A Diagram describing the states and transitions of the Joke Manager FSM](JokeManagerFSM.png "Diagram Of The Joke Manager FSM")
 
 
 ### Alien Emotion FSM
-This FSM explains how the aliens emotions works. 
+This FSM explains how the aliens emotions works. It is directly tied to the players scoring of jokes, and also the alien's movement (Which will be implemented in Assignment 3). There are 6 States as seen below:
 
-Very Happy - This state can only be entered from the Happy state, it occurs when enough positive jokes have been said to increase their happiness value to above 25. This state gives the player maximum points per joke, and will affect the aliens movement to make them more likely to stay in their chairs. 
+Very Happy - This state represents when the alien is having the time of their life! This state can only be entered from the Happy state, it occurs when enough positive jokes have been said to increase their happiness value to above 25. This state gives the player maximum points per joke, and will affect the aliens movement to make them more likely to stay in their chairs. 
 
-Happy - This state can be entered from either the Very Happy or Neutral state, it occurs when the aliens happiness is between 10 and 25. This state gives increased score per joke. this also affects the aliens movement to make them slightly more likely to stay in their chairs.  
+Happy - This state represents when the alien is enjoying the jokes the player is telling. This state can be entered from either the Very Happy or Neutral state, it occurs when the aliens happiness is between 10 and 25. This state gives increased score per joke. this also affects the aliens movement to make them slightly more likely to stay in their chairs.  
 
-Neutral - This state occurs when the aliens happiness is between -10 and 10. Represents the aliens neutral state, with no effect on scoring. 
+Neutral - This state occurs when the aliens happiness is between -10 and 10. Represents the aliens neutral state, with no effect on scoring, and the alien has an standard rate of leaving the seat, or listening to more jokes. 
 
-Angry - This state can be entered from either Angry, or Very Angry, and represents the alien when they are between -10 and -25 happiness. In this state, the player gets less points for jokes, and the alien is more likely to leave their seat and has a low chance to throw a tomato. 
+Angry - This state represents when the alien has heard too many bad jokes, and gets angry that they are wasting there time. This state can be entered from either Neutral, or Very Angry, and represents the alien when they are between -10 and -25 happiness. In this state, the player gets less points for jokes, and the alien is more likely to leave their seat and has a low chance to throw a tomato. 
 
-Very Angry - Can only be entered from the angry state, represents the alien being at less than -25 happiness. This state has the least amount of score gain for jokes, and the alien is extremelty likely to leave their seat and has the chance to throw tomatos.
+Very Angry - This state represents when the alien is completly fed up with the jokes the player is saying, and is seething with rage. Can only be entered from the angry state, represents the alien being at less than -25 happiness. This state has the least amount of score gain for jokes, and the alien is extremelty likely to leave their seat and has a high chance to throw tomatos to hit the player.
 
 Sad - Can only be entered if the aliens least favourite joke is crude AND the player says a crude joke. This state can be entered from any state. The alien will become sad, the player will lose ALOT of points. Once the alien is in the Sad state, they can not leave it unless they go to the bar (Upcoming in the Alien Movement Section for Assignment 3), regardless of the aliens happiness value. 
 
