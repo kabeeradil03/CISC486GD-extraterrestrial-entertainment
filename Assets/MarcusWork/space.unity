@@ -1508,7 +1508,9 @@ MonoBehaviour:
   laughSprite: {fileID: 21300000, guid: 2f620fb298f3f854a951e85ef07016c5, type: 3}
   sadSprite: {fileID: 21300000, guid: 0f14bcabdcb45934d98bc730a651b05a, type: 3}
   angrySprite: {fileID: 21300000, guid: 77b5862765f8e7b44b9e2f06609515b1, type: 3}
+  currentState: 2
   happiness: 0
+  jokePrefrences: 00000000010000000200000003000000
   stateText: {fileID: 861650391}
 --- !u!4 &674523577 stripped
 Transform:
@@ -4839,7 +4841,9 @@ MonoBehaviour:
   laughSprite: {fileID: 21300000, guid: 2f620fb298f3f854a951e85ef07016c5, type: 3}
   sadSprite: {fileID: 21300000, guid: 0f14bcabdcb45934d98bc730a651b05a, type: 3}
   angrySprite: {fileID: 21300000, guid: 77b5862765f8e7b44b9e2f06609515b1, type: 3}
+  currentState: 2
   happiness: 0
+  jokePrefrences: 03000000010000000200000000000000
   stateText: {fileID: 861650391}
 --- !u!1 &1658803232
 GameObject:

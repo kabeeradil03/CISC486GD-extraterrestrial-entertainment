@@ -25,9 +25,11 @@ public class NPCReaction : MonoBehaviour
 
     private Coroutine currentCoroutine;
 
-    public NPCStates currentState; 
+    public NPCStates currentState;
     public int happiness;
-    public object[] jokePrefrences;
+
+    [SerializeField]
+    public JokeManager.JokeType[] jokePrefrences;
 
     public TMP_Text stateText;
 
@@ -39,7 +41,6 @@ public class NPCReaction : MonoBehaviour
             cameraTransform = Camera.main.transform;
         }
 
-        jokePrefrences = new object[] { JokeManager.JokeType.Silly, JokeManager.JokeType.SelfDepricating, JokeManager.JokeType.Wholesome, JokeManager.JokeType.Crude };
         currentState = NPCStates.Neutral;
     }
 
@@ -65,8 +66,9 @@ public class NPCReaction : MonoBehaviour
 
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-            stateText.text = "Angry";
+        {
+                
+                stateText.text = "Angry";
                 ShowReaction(angrySprite); 
             }
 
