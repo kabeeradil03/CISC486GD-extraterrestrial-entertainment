@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
+
 
 public class PlayerScript : MonoBehaviour
 {
@@ -24,6 +26,7 @@ public class PlayerScript : MonoBehaviour
     public GameController gameController;
 
 
+    public TMP_Text stateText;
 
 
 
@@ -70,7 +73,7 @@ public class PlayerScript : MonoBehaviour
         // add the jump vector for vertical movement
         move.y = jump.y;
 
-        
+
         controller.Move(move * Time.deltaTime);
 
 
@@ -78,16 +81,20 @@ public class PlayerScript : MonoBehaviour
         {
             // floating animation while the player is in the air
             pv = 2;
+            stateText.text = "Jumping";
+
         }
         else if (move.x != 0 || move.z != 0)
         {
             // running animation while the player is moving
             // i might add an animation for when the player is moving backwards
             pv = 1;
+            stateText.text = "Running";
         }
         else
         {
-            // idle animation when the player isn't moving
+            // idle animation when the player isn't 
+            stateText.text = "Idle";
             pv = 0;
         }
         anim.SetInteger("AnimationPar", pv);

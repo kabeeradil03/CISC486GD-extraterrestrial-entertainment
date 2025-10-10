@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 3344282702373388498}
   m_Layer: 0
   m_Name: JournalCamera
-  m_TagString: Untagged
+  m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,13 +265,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8612821441116515165}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.19504404, y: 0.7569499, z: -0.56665874, w: -0.2605428}
-  m_LocalPosition: {x: 20.1, y: 137.8, z: 35.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.57193583, y: -0.051002633, z: 0.005064807, w: -0.8186956}
+  m_LocalPosition: {x: 4.4800034, y: 28.835066, z: 4.85188}
+  m_LocalScale: {x: 0.17398623, y: 0.17398623, z: 0.16733995}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7129036750956466613}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 69.554, y: 12.855, z: 8.237}
 --- !u!20 &7448965168984887592
 Camera:
   m_ObjectHideFlags: 0
@@ -304,10 +304,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 60.000004
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 3
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -436,28 +436,56 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3433443846710278467, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.17398623
+      objectReference: {fileID: 0}
+    - target: {fileID: -3433443846710278467, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.17398623
+      objectReference: {fileID: 0}
+    - target: {fileID: -3433443846710278467, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.16733995
+      objectReference: {fileID: 0}
+    - target: {fileID: -3433443846710278467, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3433443846710278467, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -3433443846710278467, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3433443846710278467, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7673933
+      value: -0.06292143
       objectReference: {fileID: 0}
     - target: {fileID: -3433443846710278467, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.54497427
+      value: 0.013617344
       objectReference: {fileID: 0}
     - target: {fileID: -3433443846710278467, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.27541727
+      value: 0.8324034
       objectReference: {fileID: 0}
     - target: {fileID: -3433443846710278467, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.19559154
+      value: 0.55041796
       objectReference: {fileID: 0}
     - target: {fileID: -3433443846710278467, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -70.762
+      value: -66.643
       objectReference: {fileID: 0}
     - target: {fileID: -3433443846710278467, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 39.486
+      value: 193.086
+      objectReference: {fileID: 0}
+    - target: {fileID: -3433443846710278467, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -6.75
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b9316d05b7f0f4d40b3fe9f49c8c8bc4, type: 3}
       propertyPath: m_Name

@@ -12,6 +12,8 @@ public class MicrophoneScript : MonoBehaviour
     public GameObject micCam;
     public GameObject playerCam;
 
+    public GameObject detectionCube;
+
     public void OnTouched()
     {
         //enable mouse and disable looking
@@ -24,28 +26,6 @@ public class MicrophoneScript : MonoBehaviour
         jokeResponseContainer.SetActive(true);
 
         GameObject jokeInstance = GameObject.Instantiate(jokePrompt, jokeResponseContainer.transform);
-
-        //Change player state to be deciding joke. 
-        playerFSM.JokePreparedToDeciding();
-    }
-
-
-
-    void finishJoke()
-    {
-        Word word1 = new Word();
-        Word word2 = new Word();
-        Word word3 = new Word();
-
-
-        Word[] words = new Word[3];
-
-        words[0] = word1;
-        words[1] = word2;
-        words[2] = word3;
-
-        controller.sayJoke(currentJoke, words);
-        
     }
 
     public void OnExit()
@@ -57,9 +37,6 @@ public class MicrophoneScript : MonoBehaviour
 
         //Disable mouse and enable looking
         jokeResponseContainer.SetActive(false); 
-
-        //Change player state to be Joke prepared. 
-        playerFSM.DecidingToJokePrepared();
 
 
     }
