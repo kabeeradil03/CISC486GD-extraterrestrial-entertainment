@@ -1,0 +1,18 @@
+Group Number: 6
+Members:
+Marcus Secord: 20ms130 - 20268223
+Nicholas Tillo: 20njt4 - 20291255
+Kabeer Adil: 20ma101 - 20283057
+
+
+YouTube Link 1: https://www.youtube.com/watch?v=9dVxzEknoJY
+YouTube Link 2: https://www.youtube.com/watch?v=yV3j3jQtLQs
+These YouTube Links are also in the GitHub's ReadMe
+
+Information about the Assignment 2 Deliverables are in the GitHub ReadMe under "Assignment 2 Deliverables"
+
+GitHub Link: https://github.com/kabeeradil03/CISC486GD-extraterrestrial-entertainment
+
+I attempted to attach the zipped project files for the game, however it was over the OnQ 2GB limit. If you need the original files for the game, Send an email to me, and I can send it at any time!
+
+I hope you enjoy!
