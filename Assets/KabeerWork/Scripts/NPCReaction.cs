@@ -18,6 +18,8 @@ public class NPCReaction : MonoBehaviour
     public float displayTime = 2f;  // Duration the sprite is visible
     public Transform cameraTransform; // To face the camera
 
+
+
     [Header("Reaction Sprites")]
     public Sprite laughSprite;
     public Sprite sadSprite;
@@ -27,6 +29,8 @@ public class NPCReaction : MonoBehaviour
 
     public NPCStates currentState;
     public int happiness;
+
+    public AlienMovement movementScript; 
 
     [SerializeField]
     public JokeManager.JokeType[] jokePrefrences;
