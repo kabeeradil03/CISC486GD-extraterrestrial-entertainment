@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class LevelSelect : MonoBehaviour
 {
     public Button l2;
-    public int lp; // level passed
+    public int mp; //multiplayer
 
     void Start()
     {
@@ -20,10 +20,10 @@ public class LevelSelect : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            lp = 1;
+            mp = 1;
         }
 
-        if (lp == 1)
+        if (mp == 1)
         {
             l2.interactable = true;
         }
