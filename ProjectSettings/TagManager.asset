@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Microphone
   - Chair
+  - Camera
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Camera
-  - 
+  - Wall
   - 
   - 
   - 
