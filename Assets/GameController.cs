@@ -136,7 +136,10 @@ public class GameController : MonoBehaviour
         //
         for (int i = 0; i < npcList.Length; i++)
         {
-            score += npcList[i].GetComponent<NPCReaction>().score(typeOfSaidJoke);
+            if(npcList[i].GetComponent<AlienMovement>().isListening == true)
+            {
+                score += npcList[i].GetComponent<NPCReaction>().score(typeOfSaidJoke);
+            }
         }
 
         //Update Score Text 

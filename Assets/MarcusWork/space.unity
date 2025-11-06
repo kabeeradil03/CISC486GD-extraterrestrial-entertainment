@@ -307,13 +307,13 @@ PrefabInstance:
       propertyPath: stateText
       value: 
       objectReference: {fileID: 861650391}
-    - target: {fileID: 6064476555349323560, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0d6bd49a85a666842928de7d171b004b, type: 2}
     - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_Name
       value: CuteAlien
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064476555349323561, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6064476555349323563, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
       propertyPath: m_LocalPosition.x
@@ -355,8 +355,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6219016859534185608, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Speed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219016859534185608, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219016859534185608, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219016859534185608, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9198228845882750408, guid: 9ac148c69b5cff64c9db44b77dc50878, type: 3}
-      propertyPath: managedReferences[2005842497825931751].m_Value
+      propertyPath: managedReferences[2005842497825931752].m_Value
       value: 
       objectReference: {fileID: 2101987553}
     m_RemovedComponents: []
@@ -7383,7 +7399,7 @@ GameObject:
   - component: {fileID: 2070231662}
   m_Layer: 0
   m_Name: Chairs
-  m_TagString: Chair
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

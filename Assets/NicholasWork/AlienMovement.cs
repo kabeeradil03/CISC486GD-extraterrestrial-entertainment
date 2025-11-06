@@ -16,6 +16,8 @@ public class AlienMovement : MonoBehaviour
     Vector3 prevPos;
     string prevTag;
 
+    public bool isListening;
+
     void Start()
     {
 
@@ -54,9 +56,13 @@ public class AlienMovement : MonoBehaviour
         //Animate Sitting, 
         transform.position = chair.transform.position;
         behaviorAgent.SetVariableValue<bool>("IsSitting", true);
+        if(chair.tag == "ListeningChair")
+        {
+            isListening = true;
+        }
         prevTag = chair.tag;
         prevChairObject = chair;
-        
+
         chair.tag = "Untagged";
 
         seated = true;
@@ -68,9 +74,12 @@ public class AlienMovement : MonoBehaviour
     {
         transform.position = prevPos; // Exit Point
 
-        behaviorAgent.SetVariableValue<bool>("IsSitting",  false);
+        behaviorAgent.SetVariableValue<bool>("IsSitting", false);
+        
         seated = false;
         agent.enabled = true;
+
+        isListening = false;
 
         Debug.Log(prevTag);
         prevChairObject.tag = prevTag;
