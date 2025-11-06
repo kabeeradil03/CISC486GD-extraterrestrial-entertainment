@@ -1,4 +1,5 @@
 using UnityEngine;
+using Unity.Behavior;
 
 public class AlienMovement : MonoBehaviour
 {
@@ -7,45 +8,81 @@ public class AlienMovement : MonoBehaviour
 
     public UnityEngine.AI.NavMeshAgent agent;
     Chair[] AllChairs = new Chair[20];
-    
-    public enum AlienMovementState
-    {
-        Walking,
-        
-    }
+    public BehaviorGraphAgent behaviorAgent;
+    Unity.Behavior.BlackboardVariable<UnityEngine.GameObject> chairObj;
+    GameObject prevChairObject;
 
-
-
-
+    bool seated = false;
+    Vector3 prevPos;
+    string prevTag;
 
     void Start()
     {
-        
 
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        generatePath();
+
+        behaviorAgent.GetVariable<GameObject>("Chair1", out chairObj);
+        GameObject chairObj1 = (GameObject)chairObj;
+
+        if(chairObj1 != null)
+        {
+            if(chairObj1.tag != "Chair" && chairObj1.tag != "ListeningChair")
+            {
+                //Stop Movement, and reset eveything. Chairs been taken
+                behaviorAgent.Restart();
+                behaviorAgent.SetVariableValue<GameObject>("Chair1", null);
+
+
+            }
+            if ((Vector3.Distance(transform.position, chairObj1.transform.position) < 3) && !seated)
+            {
+                Sit(chairObj);
+            } 
+
+        }
         
     }
-    
-    public void generatePath()
+
+    public void Sit(GameObject chair)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            agent.SetDestination(AllChairs[0].transform.position);
-        } else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            agent.SetDestination(AllChairs[1].transform.position);
-        } else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            agent.SetDestination(AllChairs[2].transform.position);
-        } else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            agent.SetDestination(AllChairs[3].transform.position);
-        }
+        prevPos = transform.position;
+        behaviorAgent.SetVariableValue<Vector3>("PrevPos", transform.position);
+        //Animate Sitting, 
+        transform.position = chair.transform.position;
+        behaviorAgent.SetVariableValue<bool>("IsSitting", true);
+        prevTag = chair.tag;
+        prevChairObject = chair;
+        
+        chair.tag = "Untagged";
+
+        seated = true;
+        //Stop Movement
+        agent.enabled = false;
+        behaviorAgent.Restart();
     }
+    public void UnSit()
+    {
+        transform.position = prevPos; // Exit Point
+
+        behaviorAgent.SetVariableValue<bool>("IsSitting",  false);
+        seated = false;
+        agent.enabled = true;
+
+        Debug.Log(prevTag);
+        prevChairObject.tag = prevTag;
+
+        
+        behaviorAgent.SetVariableValue<GameObject>("Chair1", null);
+
+
+    }
+    
 }
+
+
+    
+        

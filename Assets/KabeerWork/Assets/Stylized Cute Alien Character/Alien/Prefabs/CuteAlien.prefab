@@ -1115,6 +1115,7 @@ GameObject:
   - component: {fileID: 7761503660426830202}
   - component: {fileID: 9198228845882750408}
   - component: {fileID: 616637635875976625}
+  - component: {fileID: 926598675337234669}
   m_Layer: 0
   m_Name: CuteAlien
   m_TagString: Untagged
@@ -1151,7 +1152,7 @@ Animator:
   m_GameObject: {fileID: 6064476555349323561}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 150b771c021f45d48873c0d8caddd485, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d6bd49a85a666842928de7d171b004b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1183,7 +1184,7 @@ MonoBehaviour:
   angrySprite: {fileID: 21300000, guid: 77b5862765f8e7b44b9e2f06609515b1, type: 3}
   currentState: 2
   happiness: 0
-  movementScript: {fileID: 0}
+  movementScript: {fileID: 926598675337234669}
   jokePrefrences: 00000000010000000200000003000000
   stateText: {fileID: 0}
 --- !u!114 &7721845369008355127
@@ -1259,8 +1260,9 @@ MonoBehaviour:
   m_Graph: {fileID: 1423321492271022366, guid: 45712058c12887247aa26a329b5e4551, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 2005842494287512422
-  - rid: 2005842495638077631
   - rid: 2005842495638077632
+  - rid: 2005842497825931752
+  - rid: 2005842501464228278
   m_OriginalGraph: {fileID: 0}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -1275,14 +1277,6 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 6064476555349323561}
-    - rid: 2005842495638077631
-      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 1943288105036816883
-          m_Value1: 9193678977479965199
-        Name: Chair
-        m_Value: 
     - rid: 2005842495638077632
       type: {class: 'BlackboardVariable`1[[UnityEngine.AI.NavMeshAgent, UnityEngine.AIModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -1291,6 +1285,22 @@ MonoBehaviour:
           m_Value1: 4201400771403988553
         Name: AlienNav
         m_Value: {fileID: 6219016859534185608}
+    - rid: 2005842497825931752
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 7733765278809848791
+          m_Value1: 5561818778644408106
+        Name: AlienSpawnPoint
+        m_Value: {fileID: 0}
+    - rid: 2005842501464228278
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 8385600152189833667
+          m_Value1: 6540038358985952423
+        Name: AlienAnimation
+        m_Value: {fileID: 6064476555349323560}
 --- !u!136 &616637635875976625
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1314,6 +1324,22 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &926598675337234669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6064476555349323561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb6c6a6360d06d4fba50973c8d36c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AlienMovement
+  movementSpeed: 5
+  agent: {fileID: 6219016859534185608}
+  behaviorAgent: {fileID: 9198228845882750408}
+  m_BlackboardAsset: {fileID: 0}
 --- !u!1 &6064476555411932811
 GameObject:
   m_ObjectHideFlags: 0
