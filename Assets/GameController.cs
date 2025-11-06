@@ -21,19 +21,29 @@ public class GameController : MonoBehaviour
     public Camera mainCamera;
 
     public float actionTimer;
+    public float alienSpawnChanceTimer;
 
 
+    public int maxAliens;
     public GameObject[] npcList;
+
+    public GameObject alienPrefab;
+    
+
+
 
     
     public TMP_Text scoreText;
-
+    public GameObject alienSpawnSpot; 
 
     private PlayerFSM.State previousState;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         actionTimer = 15f;
+        alienSpawnChanceTimer = 15f;
+
+        maxAliens = 10; 
     }
 
     // Update is called once per frame
@@ -68,7 +78,22 @@ public class GameController : MonoBehaviour
             }
 
         }
-    }
+        if (alienSpawnChanceTimer > 0)
+        {
+            alienSpawnChanceTimer -= Time.deltaTime;
+        }
+        else
+        {
+
+            if (Random.Range(0, 1) < 0.33 && npcList.Length < maxAliens)
+            {
+                GameObject.Instantiate(alienPrefab, alienSpawnSpot.transform.position, Quaternion.identity);
+            }
+            alienSpawnChanceTimer = 15f;
+            
+        }
+
+        }
 
 
 

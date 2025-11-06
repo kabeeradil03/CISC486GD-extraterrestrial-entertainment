@@ -6,7 +6,7 @@ public class FindChair : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public NavMeshAgent agent;
-    [SerializeField] Transform[] obj;
+    [SerializeField] static Transform[] obj;
     Vector3[] chairs;
 
     void Start()
@@ -21,18 +21,6 @@ public class FindChair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            agent.SetDestination(chairs[0]);
-        } else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            agent.SetDestination(chairs[1]);
-        } else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            agent.SetDestination(chairs[2]);
-        } else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            agent.SetDestination(chairs[3]);
-        }
+        
     }
 }

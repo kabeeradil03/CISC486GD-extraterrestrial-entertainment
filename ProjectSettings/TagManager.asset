@@ -8,6 +8,7 @@ TagManager:
   - Chair
   - Camera
   - Floor
+  - ListeningChair
   layers:
   - Default
   - TransparentFX
