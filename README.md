@@ -139,3 +139,22 @@ Kabeer - Handled asset acquisition and management for alien NPCs, Created script
 Nicholas - Wrote the ReadMe. Joke Manager FSM, All of the development regarding the players ability to tell jokes, UI, Microphone Logic, Scoring ETC. Editied and posted the 2nd demo reel showcasing the JokeManager FSM.   
 Marcus - Found free assets for the ground, planets/sun, skybox, building, decorations, and character model.
 Worked on creating the terrain, editing the building interior (ex add a bar), and the rest of the level design. Modified and implemented the animation FSM with the player script: Idle, running, floating (in air). Wrote scripts for camera movement, player movement, the physics of the revolving planets/star, and entering/exiting the bar with gravity changes.
+
+
+# Assignment 3 Deliverables:
+
+## Behaviour Tree, 
+
+The aliens movement is now defined by a Behaviour Tree, The image below show its structure.   
+![Behaviour Tree](BehaviourTreeLabeled.png "BehaviourTree")
+The tree starts with a delay, then after there is a conditional branch used to determine if the player is seated or not. The left/true branch has a custom random node that selects a child at random, with weights defined by which state the alien is in. When sitting, the alien has 3 options, to either stay put, do an idle animation, or stand up. This brings us to the right/false branch, when the player is standing. From here, its another weighted random choice node, which can lead to either of the following.  
+  
+The alien going to either of the Bar, A non-listening chair (A chair in which they will not hear the jokes, thus the player wont get any points from them) or a listening chair (which the player will get points from them). They also have the option to stand idle, wander, or leave the bar altogether.  
+
+## Pathfinding and Steering Implementation
+The project uses the native unity NavMesh system to implement the pathfinding and following techniques. Once the behaviour tree has selected any of the "Go To Bar", "Go To Non-Listening Chair", "Go To Listening Chair", "Leave Bar" or "Wander" branches, it will cause the agent to attempt to pathfind to the given point, using an advanced A* technique to calculate its path. Its target either being a chair/exit or a random point in space. If the target is a chair or the exit it will seek towards its position. Once it gets close, it will swap to an "arrive" pathfollowing, in which it will slow down to prevent overshooting, making the movement more realistic. If the target is a random point with the "wander" branch, it will attempt to seek to a random point within a small radius to give the game a more realistic movement system. All of these movement options have collision avoidance that the aliens will attempt to steer clear of eachother when they are in motion to avoide colliding. 
+
+# YOUTUBE LINK
+
+This youtube link displays all the aliens movement and their pathfinding behaviour.  
+### LINK : https://youtu.be/
