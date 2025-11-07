@@ -16,7 +16,6 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     }
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log(Input.mousePosition);
         transform.position = Input.mousePosition;
     }
     public void OnEndDrag(PointerEventData eventData)

@@ -9,31 +9,71 @@ using Unity.Properties;
 public partial class WeightedRandomSeatedSequence : Composite
 {
 
-    int m_RandomIndex = 0;
-    [SerializeReference] public BlackboardVariable<GameObject>  targetObject;
+    int m_RandomNumber = 0;
+    int chosenIndex;
+    float[] correspondingWeights;
 
     protected override Status OnStart()
     {
 
-        GameObject obj = (GameObject) targetObject; 
+        //Serializeable Field is not working properly, Im just gonna get GameObject by name.
+
+        GameObject obj = this.GameObject; 
+        
         NPCReaction emotionScript = obj.GetComponent<NPCReaction>();
         NPCReaction.NPCStates state = emotionScript.currentState;
 
         //Stand Up, Wait, Idle Animation
-        float[] arrayVeryHappy = { 10, 1, 1};
-        float[] array1Happy = { 1, 1, 1};
-        float[] array2Neutral = { 1, 1, 1};
-        float[] array3Angry = { 1, 1, 1 };
-        float[] array4VeryAngry = { 1, 1, 1};
-        float[] array5Sad = { 1, 1, 1};
+        float[] arrayVeryHappy = { 10, 80, 100};
+        float[] array1Happy = { 20, 80, 100};
+        float[] array2Neutral = { 30, 80, 100};
+        float[] array3Angry = { 40, 80, 100};
+        float[] array4VeryAngry = { 50, 80, 100};
+        float[] array5Sad = { 60, 80, 100 };
+
+        if (state == NPCReaction.NPCStates.VeryHappy)
+        {
+            correspondingWeights = arrayVeryHappy;
+        }
+        else if (state == NPCReaction.NPCStates.Happy)
+        {
+            correspondingWeights = array1Happy;
+
+        }
+        else if (state == NPCReaction.NPCStates.Neutral)
+        {
+            correspondingWeights = array2Neutral;
+
+        }
+        else if (state == NPCReaction.NPCStates.Angry)
+        {
+            correspondingWeights = array3Angry;
+
+        }
+        else if (state == NPCReaction.NPCStates.VeryAngry)
+        {
+            correspondingWeights = array4VeryAngry;
+
+        }
+        //else if(state == NPCReaction.NPCStates.Sad)
+        else
+        {
+            correspondingWeights = array5Sad;
+
+        }
         
 
-        m_RandomIndex = UnityEngine.Random.Range(0, Children.Count); // Turn this into a weigthed range.
+        m_RandomNumber = UnityEngine.Random.Range(0, 100); // Turn this into a weigthed range.
+        chosenIndex = 0;
+        while (m_RandomNumber > correspondingWeights[chosenIndex])
+        {
+            chosenIndex += 1;
+        }
         
         //Execute the corresponding State 
-        if (m_RandomIndex < Children.Count)
+        if (chosenIndex < Children.Count)
         {
-            var status = StartNode(Children[m_RandomIndex]);
+            var status = StartNode(Children[chosenIndex]);
             if (status == Status.Success || status == Status.Failure)
                 return status;
 
@@ -46,15 +86,14 @@ public partial class WeightedRandomSeatedSequence : Composite
 
     protected override Status OnUpdate()
     {
-       var status = Children[m_RandomIndex].CurrentStatus;
-            if (status == Status.Success || status == Status.Failure)
-                return status;
+        //This code below is what should work, but I cant get it to work, the status is always uninitialized. 
+        // So therefore Im Bodging it with a return Status.Success
+        // var status = Children[chosenIndex].CurrentStatus;
+        //     if (status == Status.Success || status == Status.Failure)
+        //         return status;
 
-            return Status.Waiting;
-    }
-
-    protected override void OnEnd()
-    {
+        // return Status.Waiting;
+        return Status.Success;
     }
 }
 

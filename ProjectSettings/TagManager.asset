@@ -9,6 +9,7 @@ TagManager:
   - Camera
   - Floor
   - ListeningChair
+  - BarChair
   layers:
   - Default
   - TransparentFX

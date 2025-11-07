@@ -1,9 +1,15 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 
 public class GameController : MonoBehaviour
 {
+
+    static bool isDebug = false;
+
+
+
     public int score;
 
     public JokeManager jokeManager;
@@ -25,25 +31,36 @@ public class GameController : MonoBehaviour
 
 
     public int maxAliens;
-    public GameObject[] npcList;
+    public List<GameObject> npcList;
 
     public GameObject alienPrefab;
+
     
 
 
 
     
     public TMP_Text scoreText;
-    public GameObject alienSpawnSpot; 
+    public GameObject alienSpawnSpot;
 
     private PlayerFSM.State previousState;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         actionTimer = 15f;
-        alienSpawnChanceTimer = 15f;
+        alienSpawnChanceTimer = 10f;
 
-        maxAliens = 10; 
+        maxAliens = 10;
+
+        if (isDebug)
+        {
+            GameObject.Find("DebugPlayerUI").SetActive(true);
+        }
+        else
+        {
+            GameObject.Find("DebugPlayerUI").SetActive(false);
+            
+        }
     }
 
     // Update is called once per frame
@@ -85,9 +102,10 @@ public class GameController : MonoBehaviour
         else
         {
 
-            if (Random.Range(0, 1) < 0.33 && npcList.Length < maxAliens)
+            if (Random.Range(0, 1) < 0.33 && npcList.Count < maxAliens)
             {
-                GameObject.Instantiate(alienPrefab, alienSpawnSpot.transform.position, Quaternion.identity);
+                GameObject newAlien = GameObject.Instantiate(alienPrefab, alienSpawnSpot.transform.position, Quaternion.identity);
+                npcList.Add(newAlien);
             }
             alienSpawnChanceTimer = 15f;
             
@@ -134,8 +152,12 @@ public class GameController : MonoBehaviour
         //Play Audio
 
         //
-        for (int i = 0; i < npcList.Length; i++)
+        for (int i = 0; i < npcList.Count; i++)
         {
+            if (npcList[i] == null)
+            {
+                continue;
+            }
             if(npcList[i].GetComponent<AlienMovement>().isListening == true)
             {
                 score += npcList[i].GetComponent<NPCReaction>().score(typeOfSaidJoke);
@@ -193,5 +215,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+
+
+    public static bool IsDebug()
+    {
+        return isDebug;
+    }
 
 }

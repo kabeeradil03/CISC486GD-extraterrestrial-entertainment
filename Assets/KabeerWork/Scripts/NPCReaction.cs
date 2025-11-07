@@ -113,28 +113,43 @@ public class NPCReaction : MonoBehaviour
     {
         if (happiness >= 25)
         {
-            stateText.text = "Very Happy";
+            if (GameController.IsDebug() && stateText != null)
+            {
+                stateText.text = "Very Happy";
+            }
             currentState = NPCStates.VeryHappy;
 
         }
         else if (happiness >= 10)
         {
-            stateText.text = "Happy";
+            if (GameController.IsDebug() && stateText != null)
+            {
+                stateText.text = "Happy";
+            }
             currentState = NPCStates.Happy;
         }
         else if (happiness >= 0)
         {
-            stateText.text = "Neutral";
+            if (GameController.IsDebug() && stateText != null)
+            {
+                stateText.text = "Neutral";
+            }
             currentState = NPCStates.Neutral;
         }
         else if (happiness >= -20)
         {
-            stateText.text = "Angry";
+            if (GameController.IsDebug() && stateText != null)
+            {
+                stateText.text = "Angry";
+            }
             currentState = NPCStates.Angry;
         }
         else
         {
-            stateText.text = "Very Angry";
+            if (GameController.IsDebug() && stateText != null)
+            {
+                stateText.text = "Very Angry";
+            }
             currentState = NPCStates.VeryAngry;
         }
     }
@@ -152,6 +167,7 @@ public class NPCReaction : MonoBehaviour
         {
             ShowReaction(sadSprite);
             happiness -= 20;
+            currentState = NPCStates.Sad;
             return -20;
         }
         else if (pJoke == (JokeManager.JokeType)jokePrefrences[3])

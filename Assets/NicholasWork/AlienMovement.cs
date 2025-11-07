@@ -9,7 +9,10 @@ public class AlienMovement : MonoBehaviour
     public UnityEngine.AI.NavMeshAgent agent;
     Chair[] AllChairs = new Chair[20];
     public BehaviorGraphAgent behaviorAgent;
+
     Unity.Behavior.BlackboardVariable<UnityEngine.GameObject> chairObj;
+    Unity.Behavior.BlackboardVariable<UnityEngine.GameObject> barObj;
+
     GameObject prevChairObject;
 
     bool seated = false;
@@ -17,6 +20,8 @@ public class AlienMovement : MonoBehaviour
     string prevTag;
 
     public bool isListening;
+    public bool isAtBar;
+    float drinkCounter = 5f;
 
     void Start()
     {
@@ -30,22 +35,56 @@ public class AlienMovement : MonoBehaviour
         behaviorAgent.GetVariable<GameObject>("Chair1", out chairObj);
         GameObject chairObj1 = (GameObject)chairObj;
 
-        if(chairObj1 != null)
+        if (chairObj1 != null)
         {
-            if(chairObj1.tag != "Chair" && chairObj1.tag != "ListeningChair")
+            if (chairObj1.tag != "Chair" && chairObj1.tag != "ListeningChair")
             {
                 //Stop Movement, and reset eveything. Chairs been taken
                 behaviorAgent.Restart();
                 behaviorAgent.SetVariableValue<GameObject>("Chair1", null);
+            }
+            if ((Vector3.Distance(transform.position, chairObj1.transform.position) < 2) && !seated)
+            {
+                Sit(chairObj);
+            }
+
+        }
+
+
+        behaviorAgent.GetVariable<GameObject>("Bar", out barObj);
+        GameObject barObj1 = (GameObject) barObj;
+        if (barObj1 != null)
+        {
+            if (barObj1.tag != "BarChair")
+            {
+                //Stop Movement, and reset eveything. Chairs been taken
+                behaviorAgent.Restart();
+                behaviorAgent.SetVariableValue<GameObject>("Bar", null);
 
 
             }
-            if ((Vector3.Distance(transform.position, chairObj1.transform.position) < 3) && !seated)
+            if ((Vector3.Distance(transform.position, barObj1.transform.position) < 2) && !seated)
             {
-                Sit(chairObj);
-            } 
+                Sit(barObj1);
+                isAtBar = true;
+            }
 
         }
+
+        if (isAtBar)
+        {
+
+            if (drinkCounter < 0)
+            {
+                gameObject.GetComponent<NPCReaction>().happiness += 1;
+                drinkCounter = 5f;
+
+            }
+            drinkCounter -= Time.deltaTime;
+            
+            
+        }
+        
         
     }
 
@@ -75,17 +114,17 @@ public class AlienMovement : MonoBehaviour
         transform.position = prevPos; // Exit Point
 
         behaviorAgent.SetVariableValue<bool>("IsSitting", false);
-        
         seated = false;
         agent.enabled = true;
-
         isListening = false;
-
-        Debug.Log(prevTag);
+        isAtBar = false;
         prevChairObject.tag = prevTag;
 
-        
+
         behaviorAgent.SetVariableValue<GameObject>("Chair1", null);
+        behaviorAgent.SetVariableValue<GameObject>("Bar", null);
+
+        
 
 
     }
