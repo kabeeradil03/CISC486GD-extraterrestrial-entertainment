@@ -157,4 +157,4 @@ The project uses the native unity NavMesh system to implement the pathfinding an
 # YOUTUBE LINK
 
 This youtube link displays all the aliens movement and their pathfinding behaviour.  
-### LINK : https://youtu.be/
+### LINK : https://www.youtube.com/watch?v=O5wmU3lJKOU
