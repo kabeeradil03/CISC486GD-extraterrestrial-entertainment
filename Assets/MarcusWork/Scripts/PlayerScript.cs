@@ -6,7 +6,7 @@ using TMPro;
 public class PlayerScript : MonoBehaviour
 {
 
-    public CharacterController controller;
+    private CharacterController controller;
     public float speed;
     public float jumpHeight;
     public float gravity;
