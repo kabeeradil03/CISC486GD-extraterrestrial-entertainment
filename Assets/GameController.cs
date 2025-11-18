@@ -1,16 +1,19 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GameController : MonoBehaviour
 {
 
     static bool isDebug = false;
+    public static int score;
+    public static int levelNum;
 
 
 
-    public int score;
 
     public JokeManager jokeManager;
 
@@ -29,17 +32,24 @@ public class GameController : MonoBehaviour
     public float actionTimer;
     public float alienSpawnChanceTimer;
 
+    public float levelTimer;
+    public float endingDelayTimer;
+
+
+    public CanvasGroup darkenScreenSquare;
+
 
     public int maxAliens;
     public List<GameObject> npcList;
 
     public GameObject alienPrefab;
 
-    
+    public int DayNumber;
 
 
 
-    
+
+
     public TMP_Text scoreText;
     public GameObject alienSpawnSpot;
 
@@ -49,6 +59,10 @@ public class GameController : MonoBehaviour
     {
         actionTimer = 15f;
         alienSpawnChanceTimer = 10f;
+        //Placeholder, gets set once the level ends 
+        endingDelayTimer = 1000f;
+        //Total time for the level 
+        levelTimer = 15f;
 
         maxAliens = 10;
 
@@ -66,10 +80,57 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (playerFSM.currentState == PlayerFSM.State.Paused)
         {
             return;
         }
+
+
+        //Level Timer Stuff 
+        if (levelTimer > 0)
+        {
+            levelTimer -= Time.deltaTime;
+        }
+        else
+        {
+            //End Level. 
+            //Make all aliens leave. 
+            for (int i = 0; i < npcList.Count; i++)
+            {
+                //Make npc leave the building. 
+                // npcList[i].getComponent
+            }
+            //End the level after another timer. 
+            endingDelayTimer = 5f;
+            levelTimer = 1000f;
+        }
+
+
+        if (endingDelayTimer > 2f && endingDelayTimer < 500f)
+        {
+            Debug.Log(1);
+            endingDelayTimer -= Time.deltaTime;
+        }
+        else if (endingDelayTimer > 0f && endingDelayTimer < 500f)
+
+        {
+            Debug.Log(2);
+
+            endingDelayTimer -= Time.deltaTime;
+            //Darken Screen
+            darkenScreenSquare.alpha += 0.01f;
+
+        }
+        else if (endingDelayTimer < 0f)
+        {
+            //Move to DayTransition
+            SceneManager.LoadScene(3);
+        }
+        
+        
+        //Action Timer, For the player to be able to do jokes and stuff. 
         if (actionTimer > 0)
         {
             actionTimer -= Time.deltaTime;
@@ -160,12 +221,12 @@ public class GameController : MonoBehaviour
             }
             if(npcList[i].GetComponent<AlienMovement>().isListening == true)
             {
-                score += npcList[i].GetComponent<NPCReaction>().score(typeOfSaidJoke);
+                GameController.score += npcList[i].GetComponent<NPCReaction>().score(typeOfSaidJoke);
             }
         }
 
         //Update Score Text 
-        scoreText.text = score.ToString();
+        scoreText.text = GameController.score.ToString();
         //Change Score Accordingly. 
         playerFSM.DecidingToSaying();
 
