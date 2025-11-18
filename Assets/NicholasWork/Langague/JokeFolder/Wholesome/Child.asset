@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d4903993d5a63e4d923eb3c0cfc309a, type: 3}
-  m_Name: Joke1
+  m_Script: {fileID: 11500000, guid: a56bc88c08934a544ac3b2623f2c70eb, type: 3}
+  m_Name: Child
   m_EditorClassIdentifier: Assembly-CSharp::Joke
-  numOfInouts: 3
-  jokeTexts:
-  - Cringe
-  - Cringe
-  - Test
+  type: 1
+  theme: 1
+  meaning: Child
+  wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
+  imageID: 24

@@ -21,8 +21,9 @@ public class TransitionController : MonoBehaviour
     
     void Start()
     {
-        button.GetComponent<Button>().onClick.AddListener(() => { transitionToWorld();}); 
-
+        button.GetComponent<Button>().onClick.AddListener(() => { transitionToWorld();});
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame

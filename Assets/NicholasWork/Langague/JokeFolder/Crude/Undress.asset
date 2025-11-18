@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a56bc88c08934a544ac3b2623f2c70eb, type: 3}
-  m_Name: Word
+  m_Name: Undress
   m_EditorClassIdentifier: Assembly-CSharp::Joke
-  type: 0
-  theme: 0
-  meaning: 
-  wordImage: {fileID: 0}
+  type: 2
+  theme: 2
+  meaning: Undress
+  wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
+  imageID: 13
