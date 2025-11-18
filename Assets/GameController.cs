@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
 
     static bool isDebug = false;
     public static int score;
-    public static int levelNum;
+    public static int levelNum = 0;
 
 
 
@@ -126,6 +126,7 @@ public class GameController : MonoBehaviour
         else if (endingDelayTimer < 0f)
         {
             //Move to DayTransition
+            GameController.levelNum += 1;
             SceneManager.LoadScene(3);
         }
         

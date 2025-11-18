@@ -7,6 +7,9 @@ public class TransitionController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+
+    public TMP_Text dayText;
+
     public TMP_Text scoreText;
     public TMP_Text score;
     public TMP_Text requiredScoreText;
@@ -24,6 +27,7 @@ public class TransitionController : MonoBehaviour
         button.GetComponent<Button>().onClick.AddListener(() => { transitionToWorld();});
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        dayText.text = "Day " + GameController.levelNum;
     }
 
     // Update is called once per frame
