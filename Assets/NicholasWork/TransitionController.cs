@@ -47,9 +47,17 @@ public class TransitionController : MonoBehaviour
     }
     public void transitionToWorld()
     {
-         SceneManager.LoadScene(2);
+        SceneManager.LoadScene(2);
 
     }
+
+    public void transitionToFail()
+    {
+        SceneManager.LoadScene(4);
+
+    }
+
+
     void displayNextText()
     {
         if (counter == 0)
@@ -69,7 +77,22 @@ public class TransitionController : MonoBehaviour
         {
             verdict.gameObject.SetActive(true);
             verdictText.gameObject.SetActive(true);
-            verdict.text = ((GameController.levelNum * 20) < (GameController.score)).ToString();
+            bool verdictBool = (GameController.levelNum * 20) < (GameController.score);
+            if (verdictBool)
+            {
+                verdict.text = "Passed";
+                button.GetComponent<Button>().onClick.AddListener(() => { transitionToWorld(); });
+            }
+            else
+            {
+                verdict.text = "Failed";
+                button.GetComponent<Button>().onClick.AddListener(() => { transitionToFail(); });
+                if(GameController.maxScoreAcheieved > GameController.score)
+                {
+                    GameController.maxScoreAcheieved = GameController.score;
+                }
+            }
+            
             button.gameObject.SetActive(true);
         }
     }

@@ -1015,6 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee69f64b7771dba439e204584833d61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  dayText: {fileID: 485002895}
   scoreText: {fileID: 1566527941}
   score: {fileID: 381997742}
   requiredScoreText: {fileID: 1716098780}

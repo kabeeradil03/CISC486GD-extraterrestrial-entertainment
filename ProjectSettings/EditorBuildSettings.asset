@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/NicholasWork/DayTransition.unity
     guid: 7e72c43508037eb4e9468ac0cec3382d
+  - enabled: 1
+    path: Assets/NicholasWork/FailAnimation.unity
+    guid: de0583d2fd03ef443ac7a3a2355206d9
+  - enabled: 1
+    path: Assets/NicholasWork/Tutorial.unity
+    guid: 1ae4a6ca82c1720468246262578f0791
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 99f9c9493070a9d4c979a8fec7c5a8d3, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e129fc7c5112004e8475f88d95b0efd, type: 2}

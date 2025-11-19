@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     static bool isDebug = false;
     public static int score;
     public static int levelNum = 0;
+    public static int maxScoreAcheieved = 0;
 
 
 

@@ -7,12 +7,14 @@ using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour
 {
+    public static int highestScoreAchieved = 0;
     public Button l2;
     public int mp; //multiplayer
 
     void Start()
     {
         l2.interactable = false;
+        
     }
 
     private void Update()
