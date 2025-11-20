@@ -58,12 +58,12 @@ public class GameController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        actionTimer = 15f;
+        actionTimer = 5f;
         alienSpawnChanceTimer = 10f;
         //Placeholder, gets set once the level ends 
         endingDelayTimer = 1000f;
         //Total time for the level 
-        levelTimer = 15f;
+        levelTimer = 5f;
 
         maxAliens = 10;
 

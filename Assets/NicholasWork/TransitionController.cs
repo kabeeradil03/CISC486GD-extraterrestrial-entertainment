@@ -77,7 +77,7 @@ public class TransitionController : MonoBehaviour
         {
             verdict.gameObject.SetActive(true);
             verdictText.gameObject.SetActive(true);
-            bool verdictBool = (GameController.levelNum * 20) < (GameController.score);
+            bool verdictBool = (GameController.levelNum * 20) <= (GameController.score);
             if (verdictBool)
             {
                 verdict.text = "Passed";
