@@ -200,27 +200,43 @@ public class GameController : MonoBehaviour
     public void sayJoke()
     {
         //give this to the Jokemanager to evaluate, 
-        Word word1 = new Word();
-        Word word2 = new Word();
-        Word word3 = new Word();
-
-
         Word[] words = new Word[3];
 
         //Get the Joke prompt,
         //All of its children are the droppable spots. 
+        Debug.Log(microphone.jokePrompt.transform.childCount);
+        for (int i = 0; i <  microphone.jokePrompt.transform.childCount; i++) {
+            //This will be the word object. 
+            Transform test = microphone.jokeInstance.transform.GetChild(i);
+            
+            
+            //If its a non-droppable section, just skip over it. 
+            if(test.gameObject.GetComponent<Droppable>() == null)
+            {
+                continue;
+            }
+            //If they have dont have a child, just return. we need them to all have words in them. 
+            if(test.childCount == 0)
+            {
+                return;
+            }
 
-
-        words[0] = word1;
-        words[1] = word2;
-        words[2] = word3;
+            //Otherwise, get the child, and put it into the word list
+            DragDrop wordInSlot = test.GetChild(0).GetComponent<DragDrop>();
+            words[i] = wordInSlot.attachedWord; 
+        }
 
         //Get Joke type Of the created Joke. 
         JokeManager.JokeType typeOfSaidJoke = jokeManager.checkJokeType(jokeManager.getCurrentJoke(), words);
-        float scoringOfPerfectDefinitons = 1 + (jokeManager.getNumOfPerfects(jokeManager.getCurrentJoke(), words) * 0.5f);
+        int numOfPerfect =  jokeManager.getNumOfPerfects(jokeManager.getCurrentJoke(), words);
+        float scoringOfPerfectDefinitons = 1 + (numOfPerfect * 0.5f);
 
         //If there are any percfect definitions, display a small star! 
-
+        for(int i = 0; i < numOfPerfect; i++)
+        {
+            //Make 1 star visible. 
+            GameObject.Find("Star"+(i+1)).SetActive(true);
+        }
 
         //Play Audio
 
@@ -239,8 +255,7 @@ public class GameController : MonoBehaviour
 
         //Update Score Text 
         scoreText.text = GameController.score.ToString();
-        //Change Score Accordingly. 
-        playerFSM.DecidingToSaying();
+        
 
 
     }
@@ -249,6 +264,9 @@ public class GameController : MonoBehaviour
     {
         //Check if all jokes are filled. 
         sayJoke();
+
+        //Change Score Accordingly. 
+        playerFSM.DecidingToSaying();
     }
 
 

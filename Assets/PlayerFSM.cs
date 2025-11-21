@@ -87,6 +87,12 @@ public class PlayerFSM : MonoBehaviour
         Cursor.visible = false;
         stateText.text = "Waiting";
 
+        //Also Hide Stars.
+        GameObject.Find("Star1").SetActive(false);
+        GameObject.Find("Star2").SetActive(false);
+        GameObject.Find("Star3").SetActive(false);
+
+
     }
     
     public void DecidingToJokePrepared()
@@ -97,6 +103,8 @@ public class PlayerFSM : MonoBehaviour
         Cursor.visible = false;
         stateText.text = "JokePrepared";
     }
+
+
     public void enterPaused()
     {
         currentState = State.Paused;

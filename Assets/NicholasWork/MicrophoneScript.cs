@@ -17,6 +17,10 @@ public class MicrophoneScript : MonoBehaviour
     public GameObject detectionCube;
     public GameObject jokeInstance;
 
+    public GameObject[] listOfDragableWords;
+
+
+
 
     public void OnTouched()
     {
@@ -30,7 +34,7 @@ public class MicrophoneScript : MonoBehaviour
         jokeResponseContainer.SetActive(true);
         
         jokeInstance = GameObject.Instantiate(jokePrompt, jokeResponseContainer.transform);
-        jokeInstance.transform.position = jokeInstance.transform.position - new Vector3(-25, 0 -25);
+        //jokeInstance.transform.position = jokeInstance.transform.position - new Vector3(-25, 0 -25);
         //Load in the corresponding joke from the joke controller. 
 
     }

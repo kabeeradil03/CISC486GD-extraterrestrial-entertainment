@@ -1,9 +1,12 @@
 using UnityEngine;
+using System.Linq;
 
 public class JokeManager : MonoBehaviour
 {
     public GameObject[] allJokePrompts;
     public Joke[] allJokes;
+    public Word[] allWords;
+
 
     public enum JokeType
     {
@@ -24,9 +27,13 @@ public class JokeManager : MonoBehaviour
     //How many jokes will be said this round. 
     int numExistingJokesInScope;
 
+    int numWordsToUse = 10;
+
     public MicrophoneScript microphone;
 
     public GameController gameController;
+
+    public GameObject dragablePrefab;
 
 
 
@@ -50,14 +57,49 @@ public class JokeManager : MonoBehaviour
     //If the character is in the correct state, 
     public void PromptForJoke()
     {
+        //Find a random joke 
         int randomIndex = Random.Range(0, gameController.jokeManager.allJokePrompts.Length);
 
         currentJoke =  gameController.jokeManager.allJokes[randomIndex];
         GameObject randomJokePrefab = gameController.jokeManager.allJokePrompts[randomIndex];
         microphone.jokePrompt = randomJokePrefab;
 
+        //For that joke, generate 10 random words, and give them to the Microphone stand. 
+        GameObject[] listOfDragables = new GameObject[numWordsToUse];
+        Word[] listOfWords = new Word[numWordsToUse];
+
+        int counter = 0;
+        while(counter < numWordsToUse)
+        {
+            int randNum = Random.Range(0, allWords.Length);
+            if (! listOfWords.Contains(allWords[randNum]))
+            {
+                listOfWords[counter] = allWords[randNum];
+
+                counter += 1;
+            }
+            
+        }
+        for(int i = 0; i < numWordsToUse; i++)
+        {
+            Debug.Log("Slot"+(i+1));
+
+            Debug.Log( GameObject.Find("Slot"+(i+1)));
+
+            GameObject newDragable = GameObject.Instantiate(dragablePrefab, GameObject.Find("Slot"+(i+1)).transform);
+
+
+            DragDrop newDragScript = newDragable.GetComponent<DragDrop>();
+            newDragScript.attachedWord = listOfWords[i];
+            newDragable.GetComponent<UnityEngine.UI.Image>().sprite =  listOfWords[i].wordImage; 
+            listOfDragables[i] = newDragable;
+        }
+        microphone.listOfDragableWords = listOfDragables;
+
         //Some kind of indicator that its ready 
         gameController.playerFSM.WaitingToJokePrepared();
+
+
     }
 
     public Joke getCurrentJoke()

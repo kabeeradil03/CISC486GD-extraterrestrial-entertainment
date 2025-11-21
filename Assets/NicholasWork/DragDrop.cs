@@ -6,6 +6,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 {
     [HideInInspector] public Transform parentAfterDrag;
     public Image image;
+    public Word attachedWord;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -25,5 +26,6 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
         
     }
+
 
 }
