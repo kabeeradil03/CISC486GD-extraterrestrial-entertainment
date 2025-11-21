@@ -42,7 +42,12 @@ public class PlayerFSM : MonoBehaviour
         //Cube appears. 
         gameController.microphone.detectionCube.SetActive(true);
         //Put light to show its joke time. 
+        gameController.microphone.ReadyLight(true);
         stateText.text = "JokePrepared";
+
+        
+
+
     }
     public void JokePreparedToDeciding()
     {
@@ -78,6 +83,7 @@ public class PlayerFSM : MonoBehaviour
         gameController.microphone.detectionCube.SetActive(false);
         gameController.setPlayerCanMove(true);
         Cursor.lockState = CursorLockMode.Locked;
+        gameController.microphone.ReadyLight(false);
         Cursor.visible = false;
         stateText.text = "Waiting";
 

@@ -2752,6 +2752,133 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &567244837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 567244838}
+  - component: {fileID: 567244840}
+  - component: {fileID: 567244839}
+  m_Layer: 0
+  m_Name: ReadyLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &567244838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567244837}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7, y: 59.6, z: 38}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2120764622}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &567244839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567244837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
+--- !u!108 &567244840
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567244837}
+  m_Enabled: 1
+  serializedVersion: 11
+  m_Type: 2
+  m_Color: {r: 0.2223022, g: 0.6226415, b: 0.21440013, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!1 &585060891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3521,6 +3648,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2190399469188303466, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2190399469188303466, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 2627737374771371188, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ddcfe4a521c414c40a60eea7deae2e14, type: 2}
     - target: {fileID: 3789744865535444062, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
       propertyPath: m_Camera
       value: 
@@ -3566,9 +3705,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 487901176669662963, guid: 7dd8f19d35ec2af4baf705fc9bb2d11c, type: 3}
     - target: {fileID: 4722153383002375687, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: readyLight
+      value: 
+      objectReference: {fileID: 567244837}
+    - target: {fileID: 4722153383002375687, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
       propertyPath: currentJoke
       value: 
       objectReference: {fileID: 11400000, guid: 61bb345d2fda96a4bbeabbe44be0ba1e, type: 2}
+    - target: {fileID: 4722153383002375687, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: jokeInstance
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4722153383002375687, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
       propertyPath: detectionCube
       value: 
@@ -3577,6 +3724,42 @@ PrefabInstance:
       propertyPath: jokeResponseContainer
       value: 
       objectReference: {fileID: 1737506848}
+    - target: {fileID: 5608850892002182499, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 66.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608850892002182499, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 124.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608850892002182499, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -147.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608850892002182499, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9922526
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608850892002182499, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.12423686
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608850892002182499, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.000000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608850892002182499, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0000000018626451
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608850892002182499, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -14.273
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672862714043281218, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e25baf988722ad4284cb69c02e37068, type: 2}
     - target: {fileID: 5806365352641951567, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
       propertyPath: m_Name
       value: SubmitButton
@@ -3592,6 +3775,18 @@ PrefabInstance:
     - target: {fileID: 6575689450647383115, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905761242499018780, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905761242499018780, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.024
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905761242499018780, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8335609797209908215, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
       propertyPath: m_IsActive
@@ -3617,9 +3812,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8724287922590504289, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d3673780a9dc033498143434cd68c9db, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 99678056992358295, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 567244838}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
 --- !u!1 &823233092
@@ -8045,6 +8247,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458b593b241b4a945a0915b1a503c0ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JokeManager
+  allJokePrompts:
+  - {fileID: 487901176669662963, guid: a3816669fa606d140b1ffaa1cd7a9007, type: 3}
+  - {fileID: 487901176669662963, guid: 22d467de001b18645a47be8c114b17e0, type: 3}
+  - {fileID: 487901176669662963, guid: 070421b75b0cff740983475b129ff0a1, type: 3}
+  - {fileID: 487901176669662963, guid: 464b317ff4f838a44abe9e6ebd0f2d0e, type: 3}
+  - {fileID: 487901176669662963, guid: 1f233656042b33044807bec1c7695dfe, type: 3}
+  - {fileID: 487901176669662963, guid: 659362bae8e6ad54aa67268c638df22a, type: 3}
+  - {fileID: 487901176669662963, guid: 85c40c4fa40e02843ad5acc1fcd62e2d, type: 3}
+  - {fileID: 487901176669662963, guid: 25c3518fd01db064093b129aa8bfc9d9, type: 3}
+  - {fileID: 487901176669662963, guid: 6e7375f12e18a9a4cbc344f72912c9a1, type: 3}
+  - {fileID: 487901176669662963, guid: 12e5e6e95be87a84ca17332daeaf821d, type: 3}
+  - {fileID: 487901176669662963, guid: 98ed5424b47a46f428f4b83804cb6687, type: 3}
+  - {fileID: 487901176669662963, guid: b9a73148b731d084d89eaabc1087d7c9, type: 3}
+  - {fileID: 487901176669662963, guid: 829c43ff2b7ab774bb4233546ce3ba13, type: 3}
+  - {fileID: 487901176669662963, guid: 15f3aab5c1e51c049a33214783def206, type: 3}
+  - {fileID: 487901176669662963, guid: c47413d698ade4c4c8bff99aa39b0445, type: 3}
+  - {fileID: 487901176669662963, guid: 3045346ad60e2374999ce9253735fe2a, type: 3}
+  allJokes:
+  - {fileID: 11400000, guid: 56e784a23c2a7864da47ea99e256709e, type: 2}
+  - {fileID: 11400000, guid: 8953a0f7814f88f4bb13c752f7228ebd, type: 2}
+  - {fileID: 11400000, guid: 7042328c99a2b4e458533b4444a25c67, type: 2}
+  - {fileID: 11400000, guid: b279004bafa66274c9d508ce1e16a132, type: 2}
+  - {fileID: 11400000, guid: bd383e645dc6a994cb6d2ac66ebaf157, type: 2}
+  - {fileID: 11400000, guid: 42ab59c5521243445b6809be8743f4ce, type: 2}
+  - {fileID: 11400000, guid: c6ad9b01be7675a4da3e1fba2c67c7cd, type: 2}
+  - {fileID: 11400000, guid: f49b3ae7a55fa7348b6ff1f9e038f012, type: 2}
+  - {fileID: 11400000, guid: 8037a4e40ed05ed45a1cb36da6c029a6, type: 2}
+  - {fileID: 11400000, guid: 6d1c7270c3f27f9419f909d9ba5cd59f, type: 2}
+  - {fileID: 11400000, guid: 267dbc87b9aa0ab40b9021bf952414e9, type: 2}
+  - {fileID: 11400000, guid: 25c7a330b06374140a716aead4bb2fab, type: 2}
+  - {fileID: 11400000, guid: ac277f4b1fa4321418b31ed09dedb368, type: 2}
+  - {fileID: 11400000, guid: 7b3d21b145e805849a6e250dd54779f2, type: 2}
+  - {fileID: 11400000, guid: 79c707823a599b342a3c78041bcb654c, type: 2}
+  - {fileID: 11400000, guid: ae4dc28c5cec97144bfb56e86c7ac9d4, type: 2}
   microphone: {fileID: 2120764621}
   gameController: {fileID: 1603916567}
 --- !u!4 &1683486369
@@ -8821,6 +9057,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   gameIsPaused: 0
+  playerFSM: {fileID: 0}
+  prevState: 0
   pauseMenuUI: {fileID: 998856094}
   jokeMenu: {fileID: 1737506848}
   jokeActive: 0
@@ -9915,6 +10153,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381e3a325f8964642995238dfff49af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MicrophoneScript
+--- !u!4 &2120764622 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 99678056992358295, guid: 6308bfa98d60ce148885fadf45a1e26c, type: 3}
+  m_PrefabInstance: {fileID: 815982337}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2134800699
 GameObject:
   m_ObjectHideFlags: 0

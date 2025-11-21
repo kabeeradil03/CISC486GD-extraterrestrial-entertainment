@@ -162,6 +162,7 @@ public class NPCReaction : MonoBehaviour
             calculateState();
             return 10;
         }
+
         //If the said joke was a crude joke, and the aliens least favourite joke is crude, then they become sad. 
         else if (pJoke == (JokeManager.JokeType)jokePrefrences[3] && pJoke == JokeManager.JokeType.Crude)
         {

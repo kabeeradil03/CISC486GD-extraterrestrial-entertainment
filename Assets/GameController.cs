@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public static int levelNum = 0;
     public static int maxScoreAcheieved = 0;
 
+    public static bool isPaused;
 
 
 
@@ -63,7 +64,7 @@ public class GameController : MonoBehaviour
         //Placeholder, gets set once the level ends 
         endingDelayTimer = 1000f;
         //Total time for the level 
-        levelTimer = 5f;
+        levelTimer = 100f;
 
         maxAliens = 10;
 
@@ -206,12 +207,21 @@ public class GameController : MonoBehaviour
 
         Word[] words = new Word[3];
 
+        //Get the Joke prompt,
+        //All of its children are the droppable spots. 
+
+
         words[0] = word1;
         words[1] = word2;
         words[2] = word3;
 
         //Get Joke type Of the created Joke. 
         JokeManager.JokeType typeOfSaidJoke = jokeManager.checkJokeType(jokeManager.getCurrentJoke(), words);
+        float scoringOfPerfectDefinitons = 1 + (jokeManager.getNumOfPerfects(jokeManager.getCurrentJoke(), words) * 0.5f);
+
+        //If there are any percfect definitions, display a small star! 
+
+
         //Play Audio
 
         //
@@ -223,7 +233,7 @@ public class GameController : MonoBehaviour
             }
             if(npcList[i].GetComponent<AlienMovement>().isListening == true)
             {
-                GameController.score += npcList[i].GetComponent<NPCReaction>().score(typeOfSaidJoke);
+                GameController.score += (int) (npcList[i].GetComponent<NPCReaction>().score(typeOfSaidJoke) + (Mathf.Abs((float)npcList[i].GetComponent<NPCReaction>().score(typeOfSaidJoke)) * scoringOfPerfectDefinitons));
             }
         }
 

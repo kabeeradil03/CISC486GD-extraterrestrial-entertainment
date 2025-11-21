@@ -6,5 +6,7 @@ public class Joke : ScriptableObject
     public int numOfInputs;
     public string[] jokeTexts;
     public int id;
+    public AudioClip[] listOfAudio;
+    public Word.WordTypes[] perfectDefinition;
     
 }

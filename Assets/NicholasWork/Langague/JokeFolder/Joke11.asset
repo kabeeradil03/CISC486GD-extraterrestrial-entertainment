@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4903993d5a63e4d923eb3c0cfc309a, type: 3}
+  m_Name: Joke11
+  m_EditorClassIdentifier: Assembly-CSharp::Joke
+  numOfInputs: 1
+  jokeTexts:
+  - 'Don''t ever let '
+  - drive your UFO. I'm still recovering from the space sickness
+  id: 0
+  listOfAudio:
+  - {fileID: 0}
+  perfectDefinition: 01000000

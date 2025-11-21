@@ -9,6 +9,9 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
 
     public bool gameIsPaused = false;
+    public PlayerFSM playerFSM;
+    public PlayerFSM.State prevState;
+
     [SerializeField] public GameObject pauseMenuUI;
     [SerializeField] public GameObject jokeMenu;
     
@@ -16,7 +19,7 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-
+        playerFSM = GameObject.Find("Player").GetComponent<PlayerFSM>();
     }
 
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class PauseMenu : MonoBehaviour
             {
                 pause();
             }
+            playerFSM.currentState = prevState;
         }
 
 
@@ -54,6 +58,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+        
     }
 
     public void pause()
@@ -71,6 +76,11 @@ public class PauseMenu : MonoBehaviour
         jokeMenu.SetActive(false);
         Time.timeScale = 0f;
         gameIsPaused = true;
+
+        //Pause Game Play 
+        prevState = playerFSM.currentState;
+        playerFSM.currentState = PlayerFSM.State.Paused;
+
     }
 
     public void menu()

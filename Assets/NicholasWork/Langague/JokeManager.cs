@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class JokeManager : MonoBehaviour
 {
+    public GameObject[] allJokePrompts;
+    public Joke[] allJokes;
+
     public enum JokeType
     {
         Crude,
@@ -13,8 +16,7 @@ public class JokeManager : MonoBehaviour
     //Time till the next joke can appear. 
     bool readyToSayJoke;
 
-
-    Joke[] jokeList;
+    Joke currentJoke;
     //The number of the next upcoming joke
     int jokeIndex;
     //List of joke INDEXs that have been used. 
@@ -33,8 +35,6 @@ public class JokeManager : MonoBehaviour
     {
         SetNumExistingJokesInScope();
         usedJokesThisRound = new int[numExistingJokesInScope];
-        jokeList = new Joke[numExistingJokesInScope];
-        jokeIndex = 1;
 
     }
 
@@ -50,19 +50,94 @@ public class JokeManager : MonoBehaviour
     //If the character is in the correct state, 
     public void PromptForJoke()
     {
-        microphone.currentJoke = jokeList[jokeIndex];
+        int randomIndex = Random.Range(0, gameController.jokeManager.allJokePrompts.Length);
+
+        currentJoke =  gameController.jokeManager.allJokes[randomIndex];
+        GameObject randomJokePrefab = gameController.jokeManager.allJokePrompts[randomIndex];
+        microphone.jokePrompt = randomJokePrefab;
+
         //Some kind of indicator that its ready 
         gameController.playerFSM.WaitingToJokePrepared();
     }
 
     public Joke getCurrentJoke()
     {
-        //FIX HERE
-        return jokeList[0];
+        return currentJoke;
     }
+
+
+    public int getNumOfPerfects(Joke pJoke, Word[] words){
+        int counter = 0;
+         for(int i = 0; i < words.Length; i++)
+        {
+            
+            if (pJoke.perfectDefinition[i] == words[i].type)
+            {
+                counter += 1;
+            }
+        }
+        return counter;
+    }
+    
     public JokeType checkJokeType(Joke pJoke, Word[] words)
     {
-        return JokeType.Silly;
+        int[] values = new int[4];
+        values[0] = 0;
+        values[1] = 0;
+        values[2] = 0;
+        values[3] = 0;
+
+        for(int i = 0; i < words.Length; i++)
+        {
+            int addVal = 1; 
+            if (pJoke.perfectDefinition[i] == words[i].type)
+            {
+                addVal = 2;
+            }
+
+            if(words[i].theme == JokeType.Crude)
+            {
+                values[0] += addVal;
+            }
+            else if(words[i].theme == JokeType.SelfDepricating)
+            {
+                values[1] += addVal;
+            }
+            else if(words[i].theme == JokeType.Silly)
+            {
+                values[2] += addVal;
+            }
+            else if(words[i].theme == JokeType.Wholesome)
+            {
+                values[3] += addVal;
+            }
+        }
+        int maxIndex = 0;
+        for(int i = 1; i < values.Length; i++)
+        {
+            if(values[i] > values[maxIndex])
+            {
+                maxIndex = i;
+            }
+        }
+
+        if(maxIndex == 0)
+        {
+            return JokeType.Crude;
+        }
+        else if(maxIndex == 1)
+        {
+            return JokeType.SelfDepricating;
+        }
+        else if(maxIndex == 2)
+        {
+            return JokeType.Silly;
+        }
+        //else if(maxIndex == 3)
+        else{
+            return JokeType.Wholesome;
+        }
+        ;
     }
 }
 
