@@ -163,6 +163,15 @@ public class NPCReaction : MonoBehaviour
             return 10;
         }
 
+        else if (pJoke == (JokeManager.JokeType)jokePrefrences[1])
+        {
+            ShowReaction(laughSprite);
+            happiness += 5;
+            calculateState();
+            return 5;
+        }
+
+
         //If the said joke was a crude joke, and the aliens least favourite joke is crude, then they become sad. 
         else if (pJoke == (JokeManager.JokeType)jokePrefrences[3] && pJoke == JokeManager.JokeType.Crude)
         {
@@ -171,13 +180,23 @@ public class NPCReaction : MonoBehaviour
             currentState = NPCStates.Sad;
             return -20;
         }
-        else if (pJoke == (JokeManager.JokeType)jokePrefrences[3])
+
+        else if (pJoke == (JokeManager.JokeType)jokePrefrences[2])
         {
             ShowReaction(angrySprite);
             happiness -= 5;
             calculateState();
 
             return -5;
+        }
+
+        else if (pJoke == (JokeManager.JokeType)jokePrefrences[3])
+        {
+            ShowReaction(angrySprite);
+            happiness -= 10;
+            calculateState();
+
+            return -10;
         }
         else
         {
