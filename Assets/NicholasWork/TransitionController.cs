@@ -21,6 +21,9 @@ public class TransitionController : MonoBehaviour
 
     public float actionTimer = 5f;
     private int counter = 0;
+
+    public GameObject pass;
+    public GameObject fail;
     
     void Start()
     {
@@ -80,11 +83,13 @@ public class TransitionController : MonoBehaviour
             bool verdictBool = (GameController.levelNum * 20) <= (GameController.score);
             if (verdictBool)
             {
+                pass.SetActive(true);
                 verdict.text = "Passed";
                 button.GetComponent<Button>().onClick.AddListener(() => { transitionToWorld(); });
             }
             else
             {
+                fail.SetActive(true);
                 verdict.text = "Failed";
                 button.GetComponent<Button>().onClick.AddListener(() => { transitionToFail(); });
                 if(GameController.maxScoreAcheieved > GameController.score)
