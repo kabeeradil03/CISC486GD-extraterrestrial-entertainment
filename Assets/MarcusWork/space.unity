@@ -616,6 +616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 51883698}
   - component: {fileID: 51883697}
+  - component: {fileID: 51883699}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -735,6 +736,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &51883699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51883696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c144ff325b5d5164ebd24ed7ac32f4c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioLevel
+  aud: {fileID: 51883697}
+  pfsm: {fileID: 538759677}
 --- !u!1 &87753407
 GameObject:
   m_ObjectHideFlags: 0
