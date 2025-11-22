@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Joke
   numOfInputs: 1
   jokeTexts:
-  - How can you tell the difference between a {
+  - 'How can you tell the difference between a '
   - body snatcher and the original, Its in the way they
   id: 0
   listOfAudio:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 2273b83c1793d7b4abd04677c7e38ebd, type: 3}
+  - {fileID: 8300000, guid: 451a0bce8e36b7c4da0b69ae6f5151f6, type: 3}
   perfectDefinition: 0000000002000000

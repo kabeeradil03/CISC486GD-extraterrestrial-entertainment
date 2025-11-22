@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: Smile
   wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
   imageID: 23
+  sound: {fileID: 8300000, guid: 1f68a300f484af24cad259fdeb7a7e50, type: 3}

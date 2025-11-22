@@ -19,5 +19,7 @@ MonoBehaviour:
   - 'it. '
   id: 0
   listOfAudio:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 46a7763b736f3e44c9744bf64540f411, type: 3}
+  - {fileID: 8300000, guid: 9268933040db01049b40f584aa6f0886, type: 3}
+  - {fileID: 8300000, guid: e7bb93cc878e142429e8e11fb422afd4, type: 3}
   perfectDefinition: 0100000002000000

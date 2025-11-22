@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
 public class GameController : MonoBehaviour
 {
 
@@ -48,6 +47,11 @@ public class GameController : MonoBehaviour
 
     public int DayNumber;
 
+    public AudioSource jokePlayer;
+
+    private Queue<AudioClip> audioQueue = new Queue<AudioClip>();
+    public GameObject[] StarList;
+
 
 
 
@@ -85,6 +89,10 @@ public class GameController : MonoBehaviour
 
 
         if (playerFSM.currentState == PlayerFSM.State.Paused)
+        {
+            return;
+        }
+        if(playerFSM.currentState == PlayerFSM.State.SayingJoke && jokePlayer.isPlaying)
         {
             return;
         }
@@ -132,7 +140,20 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene(3);
         }
         
-        
+        if (playerFSM.currentState == PlayerFSM.State.SayingJoke && !jokePlayer.isPlaying && audioQueue.Count > 0)
+            {
+                //Dequeue, Play audio clip
+                AudioClip clipToPlay = audioQueue.Dequeue();
+                jokePlayer.clip = clipToPlay;
+                jokePlayer.Play();
+
+            }
+        else if(playerFSM.currentState == PlayerFSM.State.SayingJoke && !jokePlayer.isPlaying && audioQueue.Count == 0)
+        {
+            //transition to waiting
+            playerFSM.SayingToWaiting();
+            actionTimer = 5f;
+        }
         //Action Timer, For the player to be able to do jokes and stuff. 
         if (actionTimer > 0)
         {
@@ -146,12 +167,6 @@ public class GameController : MonoBehaviour
                 jokeManager.PromptForJoke();
                 playerFSM.WaitingToJokePrepared();
                 actionTimer = 15f;
-            }
-            else if (playerFSM.currentState == PlayerFSM.State.SayingJoke)
-            {
-                playerFSM.SayingToWaiting();
-                actionTimer = 5f;
-
             }
             else
             {
@@ -200,7 +215,7 @@ public class GameController : MonoBehaviour
     public void sayJoke()
     {
         //give this to the Jokemanager to evaluate, 
-        Word[] words = new Word[3];
+        List<Word> words = new List<Word>();
 
         //Get the Joke prompt,
         //All of its children are the droppable spots. 
@@ -223,7 +238,7 @@ public class GameController : MonoBehaviour
 
             //Otherwise, get the child, and put it into the word list
             DragDrop wordInSlot = test.GetChild(0).GetComponent<DragDrop>();
-            words[i] = wordInSlot.attachedWord; 
+            words.Add(wordInSlot.attachedWord); 
         }
 
         //Get Joke type Of the created Joke. 
@@ -235,12 +250,38 @@ public class GameController : MonoBehaviour
         for(int i = 0; i < numOfPerfect; i++)
         {
             //Make 1 star visible. 
-            GameObject.Find("Star"+(i+1)).SetActive(true);
+            StarList[i].SetActive(true);
         }
 
-        //Play Audio
+        //Populate the audio queue  with the corresponding texts
+        int loop = 0;
+        while (true)
+        {
+            if(jokeManager.getCurrentJoke().listOfAudio.Length > loop)
+            {
+                audioQueue.Enqueue(jokeManager.getCurrentJoke().listOfAudio[loop]);
+            }
+            else
+            {
+                break;
+            }
+            if(words.Count > loop)
+            {
+                audioQueue.Enqueue(words[loop].sound);
+            }
+            else
+            {
+                break;
+            }
+            loop += 1;
 
-        //
+        }
+        //Actually play clip
+        jokePlayer.clip = audioQueue.Dequeue();
+        jokePlayer.Play();
+
+
+
         for (int i = 0; i < npcList.Count; i++)
         {
             if (npcList[i] == null)

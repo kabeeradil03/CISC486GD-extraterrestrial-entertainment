@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: Fall
   wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
   imageID: 32
+  sound: {fileID: 8300000, guid: 00862cb9823068c41abf379f4233fbf6, type: 3}

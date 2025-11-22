@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: Cute
   wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
   imageID: 29
+  sound: {fileID: 8300000, guid: f8329c2fac41e17439d5422243658d4f, type: 3}

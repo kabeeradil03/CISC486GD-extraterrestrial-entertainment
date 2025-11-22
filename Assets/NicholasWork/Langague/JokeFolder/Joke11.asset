@@ -18,5 +18,6 @@ MonoBehaviour:
   - drive your UFO. I'm still recovering from the space sickness
   id: 0
   listOfAudio:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: f630c6915cfbb364f8e308018f094a45, type: 3}
+  - {fileID: 8300000, guid: e0e74f3eb143b1546840332f5c30ea1e, type: 3}
   perfectDefinition: 01000000

@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: Fail
   wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
   imageID: 3
+  sound: {fileID: 8300000, guid: 8e06b46b9b045124caeb7b566da5691f, type: 3}

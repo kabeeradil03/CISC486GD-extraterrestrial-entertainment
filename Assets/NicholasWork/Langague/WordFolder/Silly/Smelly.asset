@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: Smelly
   wordImage: {fileID: 7482667652216324306, guid: 2f061c50dff190344ada280aef83f42a, type: 3}
   imageID: 38
+  sound: {fileID: 8300000, guid: f0d37534be4ea3a46b1f1389dd394a67, type: 3}

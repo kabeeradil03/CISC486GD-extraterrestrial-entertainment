@@ -20,7 +20,7 @@ public class MicrophoneScript : MonoBehaviour
     public GameObject[] listOfDragableWords;
 
 
-
+    public bool setBool;
 
     public void OnTouched()
     {
@@ -37,10 +37,55 @@ public class MicrophoneScript : MonoBehaviour
         //jokeInstance.transform.position = jokeInstance.transform.position - new Vector3(-25, 0 -25);
         //Load in the corresponding joke from the joke controller. 
 
+
+        //If first time entering since a joke has been said. 
+        if (setBool)
+        {
+            GameObject[] listOfDragables = new GameObject[controller.jokeManager.listOfWords.Count];
+            
+            for(int i = 0; i < controller.jokeManager.listOfWords.Count; i++)
+            {
+                Debug.Log("Slot"+(i+1));
+
+                Debug.Log(GameObject.Find("Slot"+(i+1)));
+
+                GameObject newDragable = GameObject.Instantiate(controller.jokeManager.dragablePrefab, GameObject.Find("Slot"+(i+1)).transform);
+
+
+                DragDrop newDragScript = newDragable.GetComponent<DragDrop>();
+                newDragScript.attachedWord = controller.jokeManager.listOfWords[i];
+                newDragable.GetComponent<UnityEngine.UI.Image>().sprite =  controller.jokeManager.listOfWords[i].wordImage; 
+                listOfDragables[i] = newDragable;
+            }
+            listOfDragableWords = listOfDragables;
+            setBool = false;
+        }
+        
+
+
+
+
     }
 
     public void OnExit()
     {
+        //Also Hide Stars.
+        if(GameObject.Find("Star1") != null)
+        {
+            GameObject.Find("Star1").SetActive(false);
+            
+        }
+        if(GameObject.Find("Star2") != null)
+        {
+            GameObject.Find("Star2").SetActive(false);
+            
+        }
+        if(GameObject.Find("Star3") != null)
+        {
+            GameObject.Find("Star3").SetActive(false);
+            
+        }
+
         micCam.SetActive(false);
         playerCam.SetActive(true);
         //Destroy the joke instance and hide the container. 

@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: Sad
   wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
   imageID: 8
+  sound: {fileID: 8300000, guid: 0a369c8eb636c2a47860729f374358ce, type: 3}

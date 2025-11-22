@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: Poor
   wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
   imageID: 7
+  sound: {fileID: 8300000, guid: 6b86441cb3084e04a9fa1a4e8a196788, type: 3}

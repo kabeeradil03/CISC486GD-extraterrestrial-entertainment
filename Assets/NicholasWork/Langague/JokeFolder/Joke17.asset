@@ -17,5 +17,7 @@ MonoBehaviour:
   - My life on earth was so boring, {I} almost resorted to doing
   - for fun
   id: 0
-  listOfAudio: []
+  listOfAudio:
+  - {fileID: 8300000, guid: 4820c61db83fffc4f8d2b10a30e582dd, type: 3}
+  - {fileID: 8300000, guid: 034eb4b148ff0224d8239593469a9029, type: 3}
   perfectDefinition: 02000000

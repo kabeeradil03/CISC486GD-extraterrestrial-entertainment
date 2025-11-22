@@ -17,5 +17,7 @@ MonoBehaviour:
   - 'I had a raygun once, but then I '
   - 'it.  '
   id: 0
-  listOfAudio: []
+  listOfAudio:
+  - {fileID: 8300000, guid: 57cb92ecb85b02f4eb0d2ce26add2de8, type: 3}
+  - {fileID: 8300000, guid: a6649ace54afede49bdb414bcf885e14, type: 3}
   perfectDefinition: 02000000

@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: Sex
   wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
   imageID: 11
+  sound: {fileID: 8300000, guid: 9b6699c360a6f6049a49d1b553fe934c, type: 3}

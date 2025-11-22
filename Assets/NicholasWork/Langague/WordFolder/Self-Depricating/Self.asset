@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: Self
   wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
   imageID: 5
+  sound: {fileID: 8300000, guid: 7f6ea702f71217948ae82b9638dd103f, type: 3}

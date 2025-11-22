@@ -18,5 +18,6 @@ MonoBehaviour:
   - ' but now, I couldn''t be happier with'
   id: 0
   listOfAudio:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 6a098cb63fd7b854fa26dfb3c54ab474, type: 3}
+  - {fileID: 8300000, guid: a26cb23467bbc23499c3a12fd9593f30, type: 3}
   perfectDefinition: 0000000001000000

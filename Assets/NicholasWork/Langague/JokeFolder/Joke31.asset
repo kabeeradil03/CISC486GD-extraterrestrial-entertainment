@@ -19,5 +19,7 @@ MonoBehaviour:
   - "that won\u2019t"
   id: 0
   listOfAudio:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 4e8e24959897b034893fb69177085731, type: 3}
+  - {fileID: 8300000, guid: 8b3e55720c5b69848b15722cfede8a6c, type: 3}
+  - {fileID: 8300000, guid: 8cefdaba08baabe45a45be602f3115cf, type: 3}
   perfectDefinition: 000000000100000002000000

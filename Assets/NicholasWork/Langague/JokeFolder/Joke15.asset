@@ -17,5 +17,7 @@ MonoBehaviour:
   - "Do {YOU} know what\u2019s worse than a hyperspace warp? a "
   - 'hyperspace warp. '
   id: 0
-  listOfAudio: []
+  listOfAudio:
+  - {fileID: 8300000, guid: 6a7113ec786835a468c71760d2cb6927, type: 3}
+  - {fileID: 8300000, guid: 4c8eeff24fc821a479cc725fce3e14c1, type: 3}
   perfectDefinition: 00000000

@@ -20,5 +20,6 @@ public class Word : ScriptableObject
     //Information to find the image of the alien word in the images. 
     public Sprite wordImage;
     public int imageID;
+    public AudioClip sound;
 
 }

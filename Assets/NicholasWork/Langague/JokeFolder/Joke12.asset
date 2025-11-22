@@ -18,5 +18,5 @@ MonoBehaviour:
     it from me but I think they might secretly be '
   id: 0
   listOfAudio:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 39e7767183c49bf40b66855e9b57e424, type: 3}
   perfectDefinition: 01000000

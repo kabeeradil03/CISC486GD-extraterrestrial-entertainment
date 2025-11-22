@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using System.Collections.Generic;
 
 public class JokeManager : MonoBehaviour
 {
@@ -35,6 +36,9 @@ public class JokeManager : MonoBehaviour
 
     public GameObject dragablePrefab;
 
+    public List<Word> listOfWords = new List<Word>();
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -65,8 +69,9 @@ public class JokeManager : MonoBehaviour
         microphone.jokePrompt = randomJokePrefab;
 
         //For that joke, generate 10 random words, and give them to the Microphone stand. 
-        GameObject[] listOfDragables = new GameObject[numWordsToUse];
-        Word[] listOfWords = new Word[numWordsToUse];
+        
+        listOfWords = new List<Word>();
+
 
         int counter = 0;
         while(counter < numWordsToUse)
@@ -74,27 +79,14 @@ public class JokeManager : MonoBehaviour
             int randNum = Random.Range(0, allWords.Length);
             if (! listOfWords.Contains(allWords[randNum]))
             {
-                listOfWords[counter] = allWords[randNum];
-
+                listOfWords.Add(allWords[randNum]);
                 counter += 1;
             }
             
         }
-        for(int i = 0; i < numWordsToUse; i++)
-        {
-            Debug.Log("Slot"+(i+1));
 
-            Debug.Log( GameObject.Find("Slot"+(i+1)));
-
-            GameObject newDragable = GameObject.Instantiate(dragablePrefab, GameObject.Find("Slot"+(i+1)).transform);
-
-
-            DragDrop newDragScript = newDragable.GetComponent<DragDrop>();
-            newDragScript.attachedWord = listOfWords[i];
-            newDragable.GetComponent<UnityEngine.UI.Image>().sprite =  listOfWords[i].wordImage; 
-            listOfDragables[i] = newDragable;
-        }
-        microphone.listOfDragableWords = listOfDragables;
+        //Make it so that upon the next time entering the microphone, it will create new draggables
+        microphone.setBool = true;
 
         //Some kind of indicator that its ready 
         gameController.playerFSM.WaitingToJokePrepared();
@@ -108,9 +100,9 @@ public class JokeManager : MonoBehaviour
     }
 
 
-    public int getNumOfPerfects(Joke pJoke, Word[] words){
+    public int getNumOfPerfects(Joke pJoke, List<Word> words){
         int counter = 0;
-         for(int i = 0; i < words.Length; i++)
+         for(int i = 0; i < words.Count; i++)
         {
             
             if (pJoke.perfectDefinition[i] == words[i].type)
@@ -121,7 +113,7 @@ public class JokeManager : MonoBehaviour
         return counter;
     }
     
-    public JokeType checkJokeType(Joke pJoke, Word[] words)
+    public JokeType checkJokeType(Joke pJoke, List<Word>  words)
     {
         int[] values = new int[4];
         values[0] = 0;
@@ -129,7 +121,8 @@ public class JokeManager : MonoBehaviour
         values[2] = 0;
         values[3] = 0;
 
-        for(int i = 0; i < words.Length; i++)
+        Debug.Log(words.Count);
+        for(int i = 0; i < words.Count; i++)
         {
             int addVal = 1; 
             if (pJoke.perfectDefinition[i] == words[i].type)

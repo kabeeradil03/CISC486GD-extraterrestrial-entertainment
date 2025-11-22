@@ -19,5 +19,6 @@ MonoBehaviour:
     they couldn''t stop '
   id: 0
   listOfAudio:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 5cc9821b9b3eb11479991d6625b2641e, type: 3}
+  - {fileID: 8300000, guid: d97dba31d2674164890a43655df5f911, type: 3}
   perfectDefinition: 0100000002000000

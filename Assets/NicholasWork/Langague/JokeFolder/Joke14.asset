@@ -18,5 +18,7 @@ MonoBehaviour:
     able to see it, just so I could '
   - it once, even if I wouldn't come back, so worth it.
   id: 0
-  listOfAudio: []
+  listOfAudio:
+  - {fileID: 8300000, guid: a226c1211cc3a3f4da9f71a85a73ba83, type: 3}
+  - {fileID: 8300000, guid: 0634d9c8ef444cd4db9b20bf13439234, type: 3}
   perfectDefinition: 02000000

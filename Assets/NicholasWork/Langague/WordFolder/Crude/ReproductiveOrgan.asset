@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: ReproductiveOrgan
   wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
   imageID: 14
+  sound: {fileID: 8300000, guid: 10ed9e8a82382a24895d1263cbe5e9ee, type: 3}

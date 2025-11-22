@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: Soft
   wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
   imageID: 39
+  sound: {fileID: 8300000, guid: 033178c322736344eb5c9a4add359ce0, type: 3}

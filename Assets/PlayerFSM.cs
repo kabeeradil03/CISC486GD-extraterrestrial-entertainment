@@ -79,6 +79,10 @@ public class PlayerFSM : MonoBehaviour
     {
         //Allow enough time for the aliens to give their responses, and maybe enough time to dodge some tomatoes. 
         currentState = State.Waiting;
+        foreach(GameObject dragable in gameController.microphone.listOfDragableWords){
+            GameObject.Destroy(dragable);
+        }
+        
         gameController.microphone.OnExit();
         gameController.microphone.detectionCube.SetActive(false);
         gameController.setPlayerCanMove(true);
@@ -87,10 +91,7 @@ public class PlayerFSM : MonoBehaviour
         Cursor.visible = false;
         stateText.text = "Waiting";
 
-        //Also Hide Stars.
-        GameObject.Find("Star1").SetActive(false);
-        GameObject.Find("Star2").SetActive(false);
-        GameObject.Find("Star3").SetActive(false);
+        
 
 
     }

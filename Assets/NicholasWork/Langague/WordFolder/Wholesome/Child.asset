@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: Child
   wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
   imageID: 24
+  sound: {fileID: 8300000, guid: 44b7941e32655b34a85cecf01cbbe2c4, type: 3}

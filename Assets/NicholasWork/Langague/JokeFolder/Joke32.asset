@@ -19,5 +19,7 @@ MonoBehaviour:
   - Because he was
   id: 0
   listOfAudio:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 879709ee36838eb45824157b183cf314, type: 3}
+  - {fileID: 8300000, guid: cbd556654ac443841b53314c9f729302, type: 3}
+  - {fileID: 8300000, guid: 0bc629e5f0231114995ed694b5112e55, type: 3}
   perfectDefinition: 010000000200000000000000

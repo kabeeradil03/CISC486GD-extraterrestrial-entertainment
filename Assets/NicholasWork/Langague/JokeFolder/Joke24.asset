@@ -19,5 +19,7 @@ MonoBehaviour:
   - they forgot to use xeno-booster!
   id: 0
   listOfAudio:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: e30a2414654265849afcd02be20f1f67, type: 3}
+  - {fileID: 8300000, guid: fed1ffe97f4064143a4309efc14a90bc, type: 3}
+  - {fileID: 8300000, guid: 7423a9767e14a3b4881f207a91825a29, type: 3}
   perfectDefinition: 0100000000000000

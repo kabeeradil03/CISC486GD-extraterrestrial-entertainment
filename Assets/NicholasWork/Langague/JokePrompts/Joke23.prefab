@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'When I first was abducted into outspace, I was actually ____, but now,
+  m_text: 'When I first was abducted into outerspace, I was actually ____, but now,
     I couldn''t be happier with ____!
 
 '

@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: Look Like
   wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
   imageID: 1
+  sound: {fileID: 8300000, guid: ed6c8fb675a88f341ac58d2b2400bad3, type: 3}

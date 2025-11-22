@@ -17,3 +17,4 @@ MonoBehaviour:
   meaning: Eggs
   wordImage: {fileID: 7482667652216324306, guid: 23cba20c018ce85479f27a250d67c701, type: 3}
   imageID: 34
+  sound: {fileID: 8300000, guid: 2b73b0e921244db4cb2a2e81f2559df1, type: 3}

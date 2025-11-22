@@ -17,5 +17,6 @@ MonoBehaviour:
   - 'The first time I ever submitted to {ALIEN OVERLORD CRUDE NAME}, I was so scared,
     I almost '
   id: 0
-  listOfAudio: []
+  listOfAudio:
+  - {fileID: 8300000, guid: f0e7d4a0b16d5c34b891d8f553dfe290, type: 3}
   perfectDefinition: 02000000
