@@ -6,6 +6,8 @@ public class BarEntrance : MonoBehaviour
     public float y = 0;
     public float z = 0;
     public bool entering;
+    public GameObject bar;
+    public GameObject ambient;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -39,11 +41,15 @@ public class BarEntrance : MonoBehaviour
                 {
                     script.gravity = -9.81f; 
                     script.jumpHeight = 4f; 
+                    bar.SetActive(true);
+                    ambient.SetActive(false);
                 }
                 else
                 {
                     script.gravity = -4.81f;
-                    script.jumpHeight = 6f; 
+                    script.jumpHeight = 6f;
+                    bar.SetActive(false);
+                    ambient.SetActive(true);
                 }
             }
         }
