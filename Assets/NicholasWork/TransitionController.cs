@@ -31,6 +31,8 @@ public class TransitionController : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         dayText.text = "Day " + GameController.levelNum;
+        PlayerPrefs.SetInt("HighScore", GameController.score);
+        PlayerPrefs.Save();
     }
 
     // Update is called once per frame
