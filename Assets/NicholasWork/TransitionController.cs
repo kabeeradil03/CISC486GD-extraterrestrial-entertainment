@@ -66,6 +66,7 @@ public class TransitionController : MonoBehaviour
 
     public void transitionToFail()
     {
+        GameController.levelNum = 0;
         SceneManager.LoadScene(4);
 
     }
@@ -101,7 +102,6 @@ public class TransitionController : MonoBehaviour
             {
                 fail.SetActive(true);
                 verdict.text = "Failed";
-                GameController.levelNum = 0;
                 button.GetComponent<Button>().onClick.AddListener(() => { transitionToFail(); });
                 if(GameController.maxScoreAcheieved > GameController.score)
                 {
