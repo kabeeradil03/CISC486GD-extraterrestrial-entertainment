@@ -102,7 +102,7 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Microphone")
+        if (other.gameObject.tag == "Microphone" && PlayerFSM.micCooldown <=0)
         {
             gameController.entersMicrophone();
         }

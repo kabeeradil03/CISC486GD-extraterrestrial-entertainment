@@ -19,6 +19,8 @@ public class PlayerFSM : MonoBehaviour
 
     public TMP_Text stateText;
 
+    public static float micCooldown = 1f;
+
     //UI Elements.
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,12 +34,12 @@ public class PlayerFSM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        micCooldown -= Time.deltaTime;
     }
     //Transition between states; 
 
     public void WaitingToJokePrepared()
-    {
+    {    
         currentState = State.JokePrepared;
         //Cube appears. 
         gameController.microphone.detectionCube.SetActive(true);
@@ -52,7 +54,7 @@ public class PlayerFSM : MonoBehaviour
     public void JokePreparedToDeciding()
     {
         currentState = State.DecidingJoke;
-
+        micCooldown = 1f;
         //Player steps into the cube.
         gameController.microphone.OnTouched();
         Cursor.lockState = CursorLockMode.None;

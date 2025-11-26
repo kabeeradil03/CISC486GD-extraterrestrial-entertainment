@@ -90,7 +90,9 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Equals)){score+=25;}
+        if (Input.GetKeyDown(KeyCode.Minus)){score-=25;}
+        if (Input.GetKeyDown(KeyCode.KeypadMinus)){levelTimer=0;}
 
         if (playerFSM.currentState == PlayerFSM.State.Paused)
         {

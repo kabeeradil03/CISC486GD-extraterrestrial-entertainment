@@ -31,7 +31,15 @@ public class TransitionController : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         dayText.text = "Day " + GameController.levelNum;
-        PlayerPrefs.SetInt("HighScore", GameController.score);
+        
+        if (PlayerPrefs.HasKey("HighScore"))
+        {
+            if(GameController.score > PlayerPrefs.GetInt("HighScore"))
+                PlayerPrefs.SetInt("HighScore", GameController.score);
+        }
+        else{
+            PlayerPrefs.SetInt("HighScore", GameController.score);
+        }
         PlayerPrefs.Save();
     }
 
@@ -93,6 +101,7 @@ public class TransitionController : MonoBehaviour
             {
                 fail.SetActive(true);
                 verdict.text = "Failed";
+                GameController.levelNum = 0;
                 button.GetComponent<Button>().onClick.AddListener(() => { transitionToFail(); });
                 if(GameController.maxScoreAcheieved > GameController.score)
                 {
