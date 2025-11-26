@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MicrophoneScript : MonoBehaviour
 {
@@ -54,13 +55,15 @@ public class MicrophoneScript : MonoBehaviour
 
                 DragDrop newDragScript = newDragable.GetComponent<DragDrop>();
                 newDragScript.attachedWord = controller.jokeManager.listOfWords[i];
-                newDragable.GetComponent<UnityEngine.UI.Image>().sprite =  controller.jokeManager.listOfWords[i].wordImage; 
+
+                Texture2D tex = Resources.Load<Texture2D>("JokeImages/" + controller.jokeManager.listOfWords[i].imageID);
+                Sprite mySprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
+                newDragable.GetComponent<UnityEngine.UI.Image>().sprite = mySprite;
                 listOfDragables[i] = newDragable;
             }
             listOfDragableWords = listOfDragables;
             setBool = false;
         }
-        
 
 
 
