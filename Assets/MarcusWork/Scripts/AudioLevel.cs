@@ -14,7 +14,7 @@ public class AudioLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pfsm.currentState == PlayerFSM.State.DecidingJoke)
+        if (pfsm.currentState != PlayerFSM.State.JokePrepared && pfsm.currentState != PlayerFSM.State.Waiting)
         {
             aud.volume = 0.1f;
         } else
