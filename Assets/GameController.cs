@@ -250,7 +250,7 @@ public class GameController : MonoBehaviour
         //Get Joke type Of the created Joke. 
         JokeManager.JokeType typeOfSaidJoke = jokeManager.checkJokeType(jokeManager.getCurrentJoke(), words);
         int numOfPerfect =  jokeManager.getNumOfPerfects(jokeManager.getCurrentJoke(), words);
-        float scoringOfPerfectDefinitons = 1 + (numOfPerfect * 0.5f);
+        float scoringOfPerfectDefinitons = (numOfPerfect * 0.1f);
 
         //If there are any percfect definitions, display a small star! 
         for(int i = 0; i < numOfPerfect; i++)
@@ -298,6 +298,7 @@ public class GameController : MonoBehaviour
             {
                 GameController.score += (int) (npcList[i].GetComponent<NPCReaction>().score(typeOfSaidJoke) + (Mathf.Abs((float)npcList[i].GetComponent<NPCReaction>().score(typeOfSaidJoke)) * scoringOfPerfectDefinitons));
             }
+            
         }
 
         //Update Score Text 
