@@ -16,7 +16,7 @@ public class AnimationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ship.AddForce(new Vector3(0, 30f, 0));
+        ship.AddForce(new Vector3(0, 60f, 0));
 
         if(endingDelayTimer > 10f)
         {
