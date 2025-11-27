@@ -26,7 +26,7 @@ public partial class WeightedRandomSequence : Composite
         //Navigate To Bar, Navigate To Listening Chair, Navigate To Other Chair, Wait, Wander, Leave, 
         float[] arrayVeryHappy = { 10, 70, 80, 85, 95, 100 };
         float[] array1Happy = { 20, 60, 75, 80, 90, 100 };
-        float[] array2Neutral = { 20, 50, 60,70, 80, 100 };
+        float[] array2Neutral = { 20, 75, 80,85, 95, 100 };
         float[] array3Angry = { 30, 50, 60, 65, 70, 100 };
         float[] array4VeryAngry = { 30, 40, 50, 55, 60, 100 };
         float[] array5Sad = { 20, 30, 40,45, 50, 100 };
